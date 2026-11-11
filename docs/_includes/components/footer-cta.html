@@ -1,0 +1,31 @@
+<!-- Footer CTA -->
+{% assign lang = page.lang | default: site.default_lang | default: 'nl' %}
+{% assign i18n = site.data.i18n[lang] %}
+<div id="footer-cta" class="bg-white py-12 sm:py-20 lg:py-30">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="bg-gradient-to-br from-primary to-primary-hover rounded-3xl p-8 sm:p-12 lg:p-16 text-center shadow-2xl relative overflow-hidden">
+            <div class="absolute -top-32 -left-32 h-80 w-80 bg-white/10 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-32 -right-32 h-80 w-80 bg-brand/30 rounded-full blur-3xl"></div>
+
+            <div class="relative z-10">
+                <h2 class="heading-2 text-white">{{ i18n.footer_cta.title_prefix }} <span class="text-white">{{ i18n.footer_cta.title_highlight }}</span></h2>
+                <p class="mt-6 body-large text-white max-w-2xl mx-auto">{{ i18n.footer_cta.intro }}</p>
+
+                <div class="mt-10 sm:mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="{{ site.app_url }}/register" data-sign-up
+                       class="rounded-lg bg-white px-8 py-3.5 text-sm font-semibold tracking-tight text-primary shadow-lg transition-colors hover:bg-gray-100 sm:text-base">
+                        {{ i18n.hero.cta_primary }}
+                    </a>
+                    <a href="#pricing-section"
+                       class="rounded-lg border-2 border-white px-8 py-3 text-sm font-semibold tracking-tight text-white transition-colors hover:bg-white hover:text-primary sm:text-base">
+                        {{ i18n.footer_cta.pricing_cta }}
+                    </a>
+                </div>
+
+                <div class="mt-8 text-white text-sm">
+                    <p>{{ i18n.footer_cta.questions }} <a href="mailto:{{ site.email }}" class="font-semibold text-white hover:text-white">{{ site.email }}</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<!-- FAQ: home shows the questions marked home: true in i18n.yml and links to the page with all of them -->
+{% assign lang = page.lang | default: site.default_lang | default: 'nl' %}
+{% assign i18n = site.data.i18n[lang] %}
+{% if include.all %}{% assign items = i18n.faq.items %}{% else %}{% assign items = i18n.faq.items | where: 'home', true %}{% endif %}
+{% if lang == 'en' %}{% assign faq_href = '/en/faq/' | relative_url %}{% else %}{% assign faq_href = '/veelgestelde-vragen/' | relative_url %}{% endif %}
+<div id="faq-section" class="bg-gradient-to-br from-white via-gray-50 to-gray-100 py-16 sm:py-24 lg:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        {% if include.all %}
+        <div class="text-center mb-12 sm:mb-16">
+            <h1 class="heading-2">{{ i18n.faq.page_title }}</h1>
+            <p class="mx-auto mt-5 max-w-2xl body-large text-gray-700">{{ i18n.faq.page_intro }}</p>
+        </div>
+        {% else %}
+        <h2 class="heading-2 text-center mb-16 sm:mb-20">{{ i18n.faq.title_prefix }} <span class="text-primary">{{ i18n.faq.title_highlight }}</span> {{ i18n.faq.title_suffix }}</h2>
+        {% endif %}
+        {% assign half = items.size | plus: 1 | divided_by: 2 %}
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-6 lg:items-start">
+            {% for column in (1..2) %}
+            {% if column == 1 %}{% assign offset = 0 %}{% else %}{% assign offset = half %}{% endif %}
+            <div class="space-y-4">
+            {% for item in items limit: half offset: offset %}
+            <details class="group bg-white rounded-lg shadow-sm border border-border overflow-hidden hover:border-primary/20 transition-colors" {% if forloop.first and column == 1 %}open{% endif %}>
+                <summary class="flex items-center justify-between p-6 sm:p-7 cursor-pointer list-none">
+                    <span class="heading-5 text-left">{{ item.question }}</span>
+                    <span class="transition-transform duration-300 group-open:rotate-180 flex-shrink-0 ml-4" aria-hidden="true">
+                        <svg class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </span>
+                </summary>
+                <div class="px-6 sm:px-7 pb-6 body-large text-gray-700">
+                    {{ item.answer }}
+                </div>
+            </details>
+            {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+        {% unless include.all %}
+        <div class="mt-10 text-center">
+            <a href="{{ faq_href }}" class="inline-flex items-center gap-2 font-semibold text-primary hover:text-primary-hover transition-colors">{{ i18n.faq.all_link }}<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="size-5"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 0 1 .02-1.06L11.168 10 7.23 6.29a.75.75 0 1 1 1.04-1.08l4.5 4.25a.75.75 0 0 1 0 1.08l-4.5 4.25a.75.75 0 0 1-1.06-.02Z" clip-rule="evenodd"/></svg></a>
+        </div>
+        {% endunless %}
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" role="img" aria-label="Fornelo">
+  <title>Fornelo</title>
+  <circle cx="48" cy="48" r="44.5" fill="#FFF7ED" stroke="#F97316" stroke-width="3"/>
+  <g fill="none" stroke="#F97316" stroke-width="5" stroke-linecap="round">
+    <path d="M38 41C33 35 41 31 37 24"/>
+    <path d="M48 41C43 33 53 29 48 19"/>
+    <path d="M58 41C53 35 61 31 57 24"/>
+  </g>
+  <g fill="#1F2937">
+    <rect x="18" y="48" width="60" height="9" rx="4.5"/>
+    <path d="M23 57H73C73 69 62 78 48 78C34 78 23 69 23 57Z"/>
+  </g>
+</svg>

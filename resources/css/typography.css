@@ -1,0 +1,241 @@
+/* ============================================
+   TYPOGRAPHY: Fraunces for the large headings (the app's wordmark and page titles), Karla for the rest
+   ============================================ */
+
+:root {
+  --font-family-base: "Karla", sans-serif;
+  --font-family-display: "Fraunces", Georgia, serif;
+}
+
+/* H1 - the hero title */
+.heading-1 {
+  font-family: var(--font-family-display);
+  font-size: 2.375rem; /* 38px */
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  color: var(--color-ink);
+}
+
+@media (min-width: 640px) {
+  .heading-1 {
+    font-size: 3.125rem; /* 50px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .heading-1 {
+    font-size: 3.75rem; /* 60px */
+  }
+}
+
+/* H2 - section titles */
+.heading-2 {
+  font-family: var(--font-family-display);
+  font-size: 1.875rem; /* 30px */
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+
+@media (min-width: 640px) {
+  .heading-2 {
+    font-size: 2.25rem; /* 36px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .heading-2 {
+    font-size: 2.75rem; /* 44px */
+  }
+}
+
+.heading-2.text-white {
+  color: var(--color-white);
+}
+
+/* H3 - feature titles */
+.heading-3 {
+  font-family: var(--font-family-display);
+  font-size: 1.5rem; /* 24px */
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+
+@media (min-width: 640px) {
+  .heading-3 {
+    font-size: 1.875rem; /* 30px */
+  }
+}
+
+/* H4 - small section headers */
+.heading-4 {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+
+/* H5 - card titles */
+.heading-5 {
+  font-size: 1.125rem; /* 18px */
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-ink);
+}
+
+/* H6 - small titles */
+.heading-6 {
+  font-size: 1rem; /* 16px */
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-ink);
+}
+
+/* The wordmark next to the logo: Fraunces at its heaviest, as in the app */
+.wordmark {
+  font-family: var(--font-family-display);
+  font-weight: 900;
+  font-size: 1.375rem;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+
+/* ============================================
+   EYEBROW / LABEL TEXT
+   ============================================ */
+
+.eyebrow {
+  font-size: 0.75rem; /* 12px */
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-primary-hover);
+}
+
+@media (min-width: 640px) {
+  .eyebrow {
+    font-size: 0.875rem; /* 14px */
+  }
+}
+
+.eyebrow.text-gray-500 {
+  color: var(--color-gray-500);
+}
+
+.eyebrow.text-white {
+  color: rgb(255 255 255 / 0.85);
+}
+
+/* ============================================
+   BODY TEXT
+   ============================================ */
+
+.body-large {
+  font-size: 1rem; /* 16px */
+  font-weight: 400;
+  line-height: 1.625;
+}
+
+@media (min-width: 640px) {
+  .body-large {
+    font-size: 1.125rem; /* 18px */
+  }
+}
+
+.body {
+  font-size: 0.875rem; /* 14px */
+  font-weight: 400;
+  line-height: 1.625;
+}
+
+.body-small {
+  font-size: 0.75rem; /* 12px */
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@media (min-width: 640px) {
+  .body-small {
+    font-size: 0.875rem; /* 14px */
+  }
+}
+
+/* ============================================
+   BUTTON & CTA TEXT
+   ============================================ */
+
+.button-primary {
+  font-size: 0.875rem; /* 14px */
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--color-white);
+}
+
+@media (min-width: 640px) {
+  .button-primary {
+    font-size: 1rem; /* 16px */
+  }
+}
+
+.button-secondary {
+  font-size: 0.875rem; /* 14px */
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 640px) {
+  .button-secondary {
+    font-size: 1rem; /* 16px */
+  }
+}
+
+/* ============================================
+   BADGES
+   ============================================ */
+
+.badge {
+  font-size: 0.75rem; /* 12px */
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+/* ============================================
+   NUMBERS (prices)
+   ============================================ */
+
+.number-large {
+  font-family: var(--font-family-display);
+  font-size: 2.25rem; /* 36px */
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-ink);
+}
+
+@media (min-width: 640px) {
+  .number-large {
+    font-size: 3rem; /* 48px */
+  }
+}
+
+/* A plan card between md and lg: three cards side by side leave about 190px each, so the price and the
+   button keep their phone sizes there. */
+@media (min-width: 48rem) and (max-width: 63.9375rem) {
+  .pricing-card .number-large {
+    font-size: 2.25rem;
+  }
+  .pricing-card .button-primary {
+    font-size: 0.875rem;
+  }
+}

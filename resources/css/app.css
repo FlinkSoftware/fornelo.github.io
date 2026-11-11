@@ -1,0 +1,458 @@
+@import "tailwindcss";
+@source "../../docs";
+@source "../../docs/_layouts";
+@source "../../docs/_includes";
+@source not "../../docs/_site";
+
+/* The site's colours, after the app's own tokens (frontend-web/app/assets/css/main.css). The logo orange
+   (#F97316) reads 2.8:1 under white text, so it is decoration only: the mark, soft panels, gradients. Anything
+   that is read or pressed uses the action orange (#C2410C: white on it 5.2:1, it on the page colour 5:1). */
+@theme {
+  --font-sans: Karla, ui-sans-serif, system-ui, sans-serif;
+  --font-display: Fraunces, Georgia, serif;
+  --color-primary: #C2410C;
+  --color-primary-hover: #9A3412;
+  --color-brand: #F97316;
+  --color-brand-soft: #FFF7ED;
+  --color-text: #1F2937;
+  --color-secondary: #15803D;
+  --color-tertiary: #E5E7EB;
+  --color-ink: #1F2937;
+  --color-background: #FAFAF9;
+  --color-card: #FFFFFF;
+  --color-border: #E5E7EB;
+}
+
+/* Dark mode: the class "dark" on <html>, set by the toggle in the navigation (app.js) or, without a choice, by
+   the system setting (the inline script in the layout's head, so the page never flashes light first).
+   The utilities read their colours from variables, so the grey scale and the site's own tokens get dark values
+   here; "white" cannot be remapped (text-white on the orange buttons must stay white), so the few white-background
+   and gradient utilities the components use are overridden one by one. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+.dark {
+  color-scheme: dark;
+  --color-text: #e7e5e4;
+  --color-ink: #fafaf9;
+  --color-background: #1c1917;
+  --color-card: #292524;
+  --color-border: #44403c;
+  --color-tertiary: #44403c;
+  --color-brand-soft: #3b2a1a;
+  --color-gray-50: #262220;
+  --color-gray-100: #2e2927;
+  --color-gray-200: #44403c;
+  --color-gray-300: #57534e;
+  --color-gray-400: #78716c;
+  --color-gray-500: #a8a29e;
+  --color-gray-600: #c4bdb7;
+  --color-gray-700: #d6d3d1;
+  --color-gray-800: #e7e5e4;
+  --color-gray-900: #fafaf9;
+  --color-emerald-50: #0f2a1f;
+  --color-emerald-200: #1f5a3f;
+  --color-emerald-600: #4ade80;
+  --color-emerald-700: #4ade80;
+  --color-emerald-800: #86efac;
+  --color-emerald-900: #bbf7d0;
+  --color-emerald-950: #dcfce7;
+  --color-amber-50: #2d2106;
+  --color-amber-900: #fde68a;
+}
+html.dark { background-color: var(--color-background); }
+.dark .bg-white { background-color: var(--color-card); }
+.dark .from-white { --tw-gradient-from: var(--color-background); }
+.dark .via-white { --tw-gradient-via: var(--color-background); }
+.dark .to-white { --tw-gradient-to: var(--color-background); }
+.dark .ring-black\/5 { --tw-ring-color: rgb(255 255 255 / 0.1); }
+.dark .ring-gray-200 { --tw-ring-color: var(--color-border); }
+.dark .shadow-sm, .dark .shadow-md, .dark .shadow-lg, .dark .shadow-xl, .dark .shadow-2xl { --tw-shadow-color: rgb(0 0 0 / 0.5); }
+.dark .bg-primary\/10 { background-color: rgb(249 115 22 / 0.18); }
+.dark .bg-primary\/5 { background-color: rgb(249 115 22 / 0.1); }
+.dark .from-brand\/10 { --tw-gradient-from: rgb(249 115 22 / 0.18); }
+.dark .via-brand\/5 { --tw-gradient-via: rgb(249 115 22 / 0.08); }
+/* Orange text on a dark surface: the action orange reads 3.4:1 on the dark card, under the 4.5:1 that running
+   text needs, so text in it gets the light orange; the orange buttons keep their colour. */
+.dark .text-primary, .dark .text-primary-hover, .dark .hover\:text-primary:hover, .dark .text-gray-700 a { color: #fdba74; }
+.dark .eyebrow, .dark .badge { color: #fdba74; }
+.dark .button-secondary.text-primary { color: #fdba74; border-color: #fb923c; }
+/* The dark buttons under Gratis and Familie: the near-black of light mode would turn near-white here */
+.dark .bg-gray-900 { background-color: #57534e; }
+.dark .hover\:bg-black:hover { background-color: #78716c; }
+/* Secondary greys: the readable-grey rule in accessibility.css fixes these to one light-mode value */
+.dark .text-gray-700, .dark .text-gray-600 { color: var(--color-gray-700); }
+.dark .text-gray-500, .dark .text-gray-400 { color: var(--color-gray-500); }
+/* The white call-to-action buttons on the orange bands stay white, with the action orange on them */
+.dark #footer-cta a.bg-white, .dark #process-section a.bg-white, .dark #app-band a.bg-white { background-color: #fff; }
+.dark #footer-cta a.text-primary, .dark #process-section a.text-primary, .dark #app-band a.text-primary { color: var(--color-primary); }
+.dark dialog::backdrop { background-color: rgb(0 0 0 / 0.75); }
+/* The toggle shows the icon of the mode you would switch to */
+.theme-toggle .theme-icon-dark { display: none; }
+.dark .theme-toggle .theme-icon-dark { display: block; }
+.dark .theme-toggle .theme-icon-light { display: none; }
+
+/* Global color rules */
+body {
+  color: var(--color-text);
+  background-color: var(--color-background);
+  font-feature-settings: "kern" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  color: var(--color-ink);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.bg-secondary, .bg-primary {
+  color: white !important;
+}
+
+/* The two fonts of the app, Latin subsets as variable fonts: Fraunces (600–900) for the big headings, Karla
+   (400–700) for everything else */
+@font-face {
+  font-family: Fraunces;
+  font-style: normal;
+  font-weight: 600 900;
+  font-display: swap;
+  src: url(../fonts/fraunces.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: Karla;
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(../fonts/karla.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Ensure button text is white */
+button,
+.btn,
+a.bg-secondary,
+a.button,
+button.bg-secondary {
+  color: #fff;
+}
+
+/* A fixed base of 16px on every screen */
+html {
+  font-size: 16px;
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary) !important;
+  color: #fff !important;
+}
+
+details summary {
+  list-style: none;
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Links and transitions */
+a {
+  transition-property: color, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+button,
+.btn,
+a[class*="bg-primary"],
+a[class*="bg-secondary"] {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Cards */
+[class*="ring-border"],
+[class*="ring-1"] {
+  border-color: var(--color-border);
+  box-shadow: 0 1px 3px 0 rgba(31, 41, 55, 0.08);
+}
+
+.shadow-sm {
+  box-shadow: 0 1px 2px 0 rgba(31, 41, 55, 0.08);
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(31, 41, 55, 0.12);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(31, 41, 55, 0.15);
+}
+
+/* Link underline on hover */
+a:not([class*="btn"]):not([class*="bg-"]) {
+  text-decoration: none;
+}
+
+a:not([class*="btn"]):not([class*="bg-"]):hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+/* Readable greys: 7:1 on white */
+.text-gray-700 {
+  color: #4b5563;
+}
+
+.text-gray-600 {
+  color: #4b5563;
+}
+
+/* ======================
+   Hero: a photo of a recipe becomes a recipe. The source photo sits on the recipe card's corner, a little
+   askew, like a print pinned on a board.
+   ====================== */
+.hero-mockup-container {
+  animation: slideUpFade 0.6s ease-out 0.2s backwards;
+}
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-mockup-container { animation: none; }
+}
+/* The photographed page, pinned on the recipe's corner like a print on a board */
+.hero-photo {
+  position: absolute;
+  right: -0.5rem;
+  top: 0;
+  width: 7rem;
+  height: auto;
+  transform: rotate(5deg);
+  border-radius: 0.5rem;
+  box-shadow: 0 12px 24px -8px rgb(31 41 55 / 0.45), 0 0 0 3px #fff;
+  z-index: 2;
+}
+@media (min-width: 640px) { .hero-photo { width: 9.5rem; right: -1rem; } }
+.hero-scan-tag {
+  position: absolute;
+  right: 0.25rem;
+  top: 8.6rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border-radius: 9999px;
+  background: var(--color-ink);
+  color: #fff;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  box-shadow: 0 4px 10px -2px rgb(31 41 55 / 0.4);
+}
+@media (min-width: 640px) { .hero-scan-tag { top: 11.6rem; right: 0; } }
+.dark .hero-photo { box-shadow: 0 12px 24px -8px rgb(0 0 0 / 0.7), 0 0 0 3px var(--color-card); }
+.dark .hero-scan-tag { background: #fafaf9; color: #1f2937; }
+/* Screenshots that open in the lightbox: the magnifier says so before the click */
+.lightbox-trigger { cursor: zoom-in; }
+
+/* The two phones in the app band: a dark bezel around the real screenshot */
+.phones {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1rem;
+}
+.phone {
+  margin: 0;
+  width: 11rem;
+  border-radius: 1.9rem;
+  background: #1c1917;
+  padding: 0.45rem;
+  box-shadow: 0 30px 50px -20px rgb(0 0 0 / 0.55), inset 0 0 0 2px #44403c;
+  flex-shrink: 0;
+}
+.phone img { display: block; width: 100%; height: auto; border-radius: 1.5rem; }
+.phone-front { width: 13rem; margin-bottom: 1.5rem; }
+@media (min-width: 640px) {
+  .phone { width: 13rem; border-radius: 2.3rem; padding: 0.55rem; }
+  .phone img { border-radius: 1.8rem; }
+  .phone-front { width: 15rem; margin-bottom: 2rem; }
+}
+
+/* Navigation: the current section or page stands out, and follows as you scroll */
+html {
+  scroll-padding-top: 1rem;
+}
+@media (min-width: 64rem) {
+  html { scroll-padding-top: 5.5rem; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+.nav-link,
+.nav-link-mobile {
+  text-decoration: none !important;
+}
+.nav-link {
+  position: relative;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  color: var(--color-gray-700);
+  transition: color 200ms ease, background-color 200ms ease;
+}
+.nav-link:hover {
+  color: var(--color-primary-hover);
+  background-color: color-mix(in oklab, var(--color-brand) 8%, transparent);
+}
+.nav-link[aria-current] {
+  color: var(--color-primary-hover);
+  background-color: color-mix(in oklab, var(--color-brand) 14%, transparent);
+  font-weight: 600;
+}
+.nav-link-mobile {
+  color: var(--color-gray-700);
+  transition: color 200ms ease, background-color 200ms ease;
+}
+.nav-link-mobile:hover {
+  color: var(--color-primary-hover);
+  background-color: var(--color-gray-50);
+}
+.nav-link-mobile[aria-current] {
+  color: var(--color-primary-hover);
+  background-color: color-mix(in oklab, var(--color-brand) 14%, transparent);
+  font-weight: 600;
+}
+.dark .nav-link:hover, .dark .nav-link[aria-current],
+.dark .nav-link-mobile:hover, .dark .nav-link-mobile[aria-current] { color: #fdba74; }
+
+/* The ideas window in the footer: explicit styles, as the global button and ring rules in accessibility.css
+   would turn its button text white and its borders into shadows */
+#ideas-dialog .ideas-copy {
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  background: var(--color-card);
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary-hover);
+  min-height: 0;
+}
+.dark #ideas-dialog .ideas-copy { color: #fdba74; }
+#ideas-dialog .ideas-copy:hover { border-color: var(--color-primary); }
+#ideas-dialog .ideas-secondary {
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 0.625rem 1rem;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+#ideas-dialog .ideas-secondary:hover { border-color: var(--color-primary); color: var(--color-primary-hover); }
+#ideas-dialog button[command="close"] { color: var(--color-gray-600); }
+.ideas-open {
+  color: var(--color-gray-600);
+  font-size: inherit;
+  font-weight: inherit;
+  min-height: 0;
+  cursor: pointer;
+  transition: color 150ms ease;
+}
+.ideas-open:hover { color: var(--color-primary); }
+
+/* Share buttons (components/share.html): round icon buttons, explicit colours as the global button rules in
+   accessibility.css would make their icons white */
+.share {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+.share .share-btn,
+.share .share-native {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  min-height: 2.5rem;
+  min-width: 2.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  background: var(--color-card);
+  color: var(--color-ink);
+  text-decoration: none;
+  transition: color 150ms ease, border-color 150ms ease, background-color 150ms ease;
+}
+.share .share-native {
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.share .share-btn:hover,
+.share .share-native:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary-hover);
+  background: color-mix(in oklab, var(--color-brand) 8%, var(--color-card));
+}
+.share .share-copy { padding: 0 0.625rem; }
+.dark .share .share-btn:hover,
+.dark .share .share-native:hover { color: #fdba74; border-color: #fb923c; }
+.share [hidden] { display: none; }
+.share .share-copied { font-size: 0.875rem; font-weight: 600; }
+
+/* Typed phrases: a word or phrase typed into a slot sized by all of them, so nothing around it moves. On the
+   share band the phrases are crossed out one by one with a line drawn left to right. */
+.typed-slot {
+  display: inline-grid;
+  vertical-align: top;
+}
+.typed-slot > * { grid-area: 1 / 1; }
+.typed-slot > .typed-sizer { visibility: hidden; }
+.typed-slot > .typed-text { justify-self: center; }
+.typed-slot.typed-start > .typed-text { justify-self: start; }
+.typed-text {
+  background-image: linear-gradient(var(--color-ink), var(--color-ink));
+  background-repeat: no-repeat;
+  background-position: 0 58%;
+  background-size: 0% 0.12em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.typed-text.is-struck {
+  background-size: 100% 0.12em;
+  color: color-mix(in oklab, var(--color-primary) 55%, #fff);
+  transition: background-size 450ms ease-out, color 450ms ease-out;
+}
+.typed-text.is-typing::after {
+  content: '|';
+  color: var(--color-primary);
+  font-weight: 400;
+  animation: typed-caret 1s steps(1) infinite;
+}
+@keyframes typed-caret { 50% { opacity: 0; } }
+
+/* Typography and accessibility, appended so they keep their precedence */
+@import "./typography.css";
+@import "./accessibility.css";

@@ -1,0 +1,66 @@
+<!-- Hero: the real thing. A recipe page of our own (scripts/magazine-page.html, rendered to an image) pinned on the
+     recipe Fornelo read from it, as the web app shows it. Nothing of a real magazine or book: those pages are
+     someone else's copyright. -->
+{% assign lang = page.lang | default: site.default_lang | default: 'nl' %}
+{% assign i18n = site.data.i18n[lang] %}
+<div id="hero-section" class="hero pt-4 pb-10 md:pt-8 lg:pt-6 md:pb-14 relative isolate overflow-hidden bg-white">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto grid max-w-6xl grid-cols-1 gap-y-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-x-12 lg:items-center">
+
+            <div>
+                <div class="lg:max-w-xl">
+                    <a href="#app-band"
+                       class="mb-5 inline-flex max-w-full items-center gap-2 rounded-2xl sm:rounded-full bg-primary/5 py-1 pl-1 pr-3 text-sm text-gray-700 ring-1 ring-primary/30 hover:ring-primary transition-colors">
+                        <span class="shrink-0 rounded-full bg-primary px-2.5 py-0.5 text-xs font-semibold text-white">{{ i18n.hero.announcement_badge }}</span>
+                        <span class="min-w-0">{{ i18n.hero.announcement }}</span>
+                        <svg class="h-4 w-4 shrink-0 text-primary" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5l5 5-5 5"/></svg>
+                    </a>
+
+                    <p class="eyebrow">{{ i18n.hero.kicker }}</p>
+                    <h1 class="mt-2 heading-1 text-balance">{{ i18n.hero.title }}</h1>
+                    <p class="mt-5 body-large text-gray-700">{{ i18n.hero.subtitle }}</p>
+
+                    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                        <a href="{{ site.app_url }}/register" data-sign-up
+                           class="button-primary w-full sm:w-auto rounded-lg bg-primary px-6 py-3.5 shadow-md hover:bg-primary-hover transition-all inline-flex items-center justify-center">
+                            {{ i18n.hero.cta_primary }}
+                        </a>
+                        <a href="#feature-section"
+                           class="button-secondary w-full sm:w-auto rounded-lg border-2 border-primary px-6 py-3.5 text-primary hover:bg-primary hover:text-white hover:border-primary transition-all inline-flex items-center justify-center gap-2">
+                            {{ i18n.hero.cta_secondary }}
+                            <svg class="h-4 w-4 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+                        </a>
+                    </div>
+
+                    <ul class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-gray-600">
+                        {% for item in i18n.hero.assurances %}
+                        <li class="inline-flex items-center gap-1.5">
+                            <svg class="h-4 w-4 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>
+                            {{ item }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- The right column: the photographed page, and the recipe Fornelo read from it -->
+            <div class="hero-mockup-container relative pt-10 sm:pt-12">
+                <img src="{{ i18n.hero.scan_image | relative_url }}" alt="{{ i18n.hero.photo_alt }}" width="480" height="679" class="hero-photo" loading="eager" decoding="async">
+                <span class="hero-scan-tag">
+                    <svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>
+                    {{ i18n.hero.scan_tag }}
+                </span>
+                <button type="button" class="lightbox-trigger block w-full rounded-2xl" data-lightbox-src="{{ i18n.hero.image | relative_url }}" data-lightbox-alt="{{ i18n.hero.image_alt }}" aria-label="{{ i18n.features.enlarge }}: {{ i18n.hero.image_alt }}">
+                    <img src="{{ i18n.hero.image | relative_url }}" srcset="{{ i18n.hero.image | replace: '.webp', '-800.webp' | relative_url }} 800w, {{ i18n.hero.image | relative_url }} 1600w" sizes="(min-width: 1024px) 680px, calc(100vw - 48px)" alt="{{ i18n.hero.image_alt }}" width="1600" height="1017" class="w-full rounded-2xl border border-border bg-white shadow-xl" loading="eager" decoding="async">
+                </button>
+                <div class="mt-4 flex justify-center lg:justify-end">
+                    <p class="text-sm text-gray-500">
+                        <span class="font-semibold text-ink">{{ i18n.hero.caption_strong }}</span>
+                        {{ i18n.hero.caption }}
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

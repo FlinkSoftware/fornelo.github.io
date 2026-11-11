@@ -1,0 +1,37 @@
+<!-- Pricing: the three plans, the same as in the app (fornelo.billing.prices in the auth-server) -->
+{% assign lang = page.lang | default: site.default_lang | default: 'nl' %}
+{% assign i18n = site.data.i18n[lang] %}
+<div id="pricing-section" class="bg-gradient-to-br from-white via-gray-50 to-gray-100 py-12 sm:py-18 lg:py-28 scroll-mt-24">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="text-center mb-12 sm:mb-14">
+            <h2 class="heading-2">
+                {{ i18n.pricing.title_prefix }} <span class="text-primary">{{ i18n.pricing.title_highlight }}</span>
+            </h2>
+            <p class="mx-auto mt-5 max-w-2xl body-large text-gray-700">{{ i18n.pricing.intro }}</p>
+        </div>
+
+        <div class="mt-10 sm:mt-12 grid grid-cols-1 gap-7 md:grid-cols-3 md:gap-4 lg:gap-7">
+            {% for plan in i18n.pricing.plans %}
+            <div class="pricing-card flex flex-col rounded-2xl bg-white p-6 md:p-4 lg:p-8 transition-all {% if plan.highlighted %}shadow-lg ring-2 ring-primary relative transform lg:scale-105{% else %}shadow-sm ring-1 ring-border hover:shadow-md{% endif %}">
+                {% if plan.highlighted %}
+                <span class="badge absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-1 text-white">{{ i18n.pricing.popular }}</span>
+                {% endif %}
+                <h3 class="heading-5">{{ plan.name }}</h3>
+                <p class="mt-2 body-small text-gray-700">{{ plan.description }}</p>
+                <p class="mt-6 number-large">{{ plan.price }}<span class="text-sm font-medium text-gray-600 font-sans"> {{ plan.period }}</span></p>
+                {% if plan.alternatives %}<p class="mt-2 body-small text-gray-600">{{ plan.alternatives }}</p>{% endif %}
+                <ul class="mt-8 flex-1 space-y-3 body-small text-gray-700">
+                    {% for bullet in plan.bullets %}
+                    <li class="flex gap-2 items-start"><span class="text-primary font-bold flex-shrink-0">✓</span> <span>{{ bullet }}</span></li>
+                    {% endfor %}
+                </ul>
+                <a href="{{ site.app_url }}/register" data-sign-up
+                    class="button-primary mt-8 block rounded-lg px-5 md:px-3 lg:px-5 py-2.5 sm:py-3 text-center transition-all {% if plan.highlighted %}bg-primary hover:bg-primary-hover shadow-lg{% else %}bg-gray-900 hover:bg-black{% endif %}">{{ plan.cta }}</a>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="mx-auto mt-10 sm:mt-12 max-w-2xl space-y-2 text-center body-small text-gray-700">
+            {% for note in i18n.pricing.notes %}<p>{{ note }}</p>{% endfor %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+---
+layout: null
+permalink: /llms.txt
+---
+# Fornelo
+
+> Fornelo is het receptenboek dat je kookboeken leest. Je maakt een foto van een recept uit een kookboek of tijdschrift (of je plakt een link van een website) en Fornelo maakt er een recept van: ingrediënten met hoeveelheden, stappen, tijd, porties, keuken en tags. Doorzoekbaar, schaalbaar, met kookmodus en boodschappenlijst, op iPhone, Android en in de browser. Gratis te beginnen (10 AI-scans per maand); Premium € 2,99 per maand (100 scans), Familie € 4,99 per maand (300 scans, tot zes mensen in één receptenboek). Prijzen inclusief btw.
+
+Website: {{ site.url }} (Nederlands), {{ site.url }}/en/ (English)
+App: {{ site.app_url }} (inloggen: {{ site.app_url }}/login, account aanmaken: {{ site.app_url }}/register)
+Maker: Flink Software B.V., Nederland. Contact: {{ site.email }}
+Gebruiksvoorwaarden: {{ site.app_url }}/voorwaarden · Privacybeleid: {{ site.app_url }}/privacy · Herroepingsformulier: {{ site.app_url }}/herroepingsformulier
+
+## Wat Fornelo doet
+
+- Scannen: een foto van een gedrukte pagina (meerdere pagina's per recept kan) wordt een recept dat de gebruiker controleert en bevestigt. De uitgelezen tekst en de foto blijven bij het recept. Fornelo zegt erbij hoe zeker het uitlezen was.
+- Website-import: een link plakken haalt het recept op. Zelf intypen kan altijd en telt niet als AI-scan.
+- Zoeken: op naam, ingrediënt, keukengerei, tag, keuken, tijd en moeilijkheid; zinnen als "zonder noten" en "onder 30 minuten" worden begrepen; "Wat heb ik in huis?" zoekt vanuit de voorraad.
+- Koken: kookmodus met scherm dat aan blijft, stappen en ingrediënten afvinken, timers die uit de stappen komen, porties schalen, grote letters.
+- Boodschappenlijst: ingrediënten van meerdere recepten gecombineerd, zonder de basisvoorraad; losse items toevoegen; in Familie live gedeeld tussen de leden; in de apps offline af te vinken.
+- Organiseren: collecties, een recept delen met een link (intrekbaar), prullenbak.
+- Samen: met Familie delen tot zes mensen één receptenboek, ieder met eigen inlog; een gebruiker kan lid zijn van meerdere receptenboeken.
+- Apps voor iPhone en Android: het receptenboek staat lokaal (offline lezen en koken), scannen met de documentscanner van het systeem, delen naar Fornelo vanuit andere apps, timers op het vergrendelscherm, pushmeldingen, vergrendelen met Face ID/Touch ID/vingerafdruk.
+- Account: inloggen met e-mail en wachtwoord, Google, Microsoft of Apple; gegevens downloaden (receptenboek als zip, persoonsgegevens als JSON); account zelf verwijderen.
+- Talen: Nederlands en Engels. Licht en donker.
+
+## Prijzen (inclusief btw)
+
+- Gratis: € 0, 10 AI-scans per maand, onbeperkt recepten, één persoon.
+- Premium: € 2,99 per maand, € 24,99 per jaar of € 59,99 eenmalig (voor altijd); 100 AI-scans per maand, één persoon.
+- Familie: € 4,99 per maand, € 39,99 per jaar of € 99,99 eenmalig (voor altijd); 300 AI-scans per maand, tot zes leden in één receptenboek, gedeelde boodschappenlijst.
+- Een abonnement per maand of per jaar begint voor nieuwe gebruikers met 14 dagen gratis; opzeggen kan altijd in de instellingen. Betalen op de website of in de app via de App Store of Google Play.
+
+## Pagina's
+
+- {{ site.url }}/ — home (Nederlands)
+- {{ site.url }}/en/ — home (English)
+- {{ site.url }}/veelgestelde-vragen/ — veelgestelde vragen
+- {{ site.url }}/en/faq/ — frequently asked questions

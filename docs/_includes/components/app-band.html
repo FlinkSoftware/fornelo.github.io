@@ -1,0 +1,42 @@
+<!-- The apps for iPhone and Android: an orange band with the text and two phones with the real app on them.
+     No store badges until the store links are known. -->
+{% assign lang = page.lang | default: site.default_lang | default: 'nl' %}
+{% assign i18n = site.data.i18n[lang] %}
+{% assign t = i18n.app_band %}
+<div id="app-band" class="bg-white py-8 sm:py-12 scroll-mt-24">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="relative isolate overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-primary-hover px-6 pt-10 sm:px-12 sm:pt-14 lg:px-16 lg:pt-0 shadow-2xl">
+            <div class="absolute -bottom-40 -right-24 -z-10 h-[32rem] w-[32rem] rounded-full bg-white/10" aria-hidden="true"></div>
+            <div class="grid grid-cols-1 gap-y-10 lg:grid-cols-2 lg:gap-x-12 lg:items-center">
+                <div class="lg:py-16">
+                    <p class="eyebrow text-white">{{ t.eyebrow }}</p>
+                    <h2 class="mt-3 heading-2 text-white">{{ t.title }}</h2>
+                    <p class="mt-6 body-large text-white">{{ t.body }}</p>
+                    <ul class="mt-6 space-y-2 body-large text-white/90">
+                        {% for bullet in t.bullets %}
+                        <li class="flex items-start gap-3"><svg class="mt-1.5 h-4 w-4 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span>{{ bullet }}</span></li>
+                        {% endfor %}
+                    </ul>
+                    <p class="mt-6 body-large text-white/80">{{ t.note }}</p>
+                    <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                        <a href="{{ site.app_url }}/register" data-sign-up
+                           class="rounded-lg bg-white px-6 py-3.5 text-center text-sm font-semibold tracking-tight text-primary shadow-lg transition-colors hover:bg-gray-100 sm:text-base">
+                            {{ i18n.hero.cta_primary }}
+                        </a>
+                    </div>
+                </div>
+                <!-- Two phones on the band's bottom edge: the iPhone a little higher than the Android phone -->
+                <div class="self-end pt-4 lg:pt-16">
+                    <div class="phones -mb-16 sm:-mb-24 lg:-mb-28">
+                        {% for phone in t.phones %}
+                        <figure class="phone{% if forloop.first %} phone-front{% endif %}">
+                            <img src="{{ phone.src | relative_url }}" alt="{{ phone.alt }}" width="600" height="1304" loading="lazy" decoding="async">
+                            <figcaption class="sr-only">{{ phone.caption }}</figcaption>
+                        </figure>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

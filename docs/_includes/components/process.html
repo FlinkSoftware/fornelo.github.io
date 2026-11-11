@@ -1,0 +1,32 @@
+<!-- "Herken je dit?": five moments from an ordinary kitchen week as short cards: the moment, the question that
+     follows, and the answer with the Fornelo mark in front of it. -->
+{% assign lang = page.lang | default: site.default_lang | default: 'nl' %}
+{% assign i18n = site.data.i18n[lang] %}
+<div id="process-section" class="bg-gray-50 border-y border-border pt-12 pb-16 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="heading-2">{{ i18n.process.title }}</h2>
+      <p class="mt-4 body-large text-gray-700">{{ i18n.process.intro }}</p>
+    </div>
+
+    <ol class="mx-auto mt-10 grid max-w-5xl gap-4 sm:mt-12 sm:gap-5 md:grid-cols-2">
+      {% for item in i18n.process.items %}
+      <li class="flex flex-col rounded-2xl bg-white p-6 ring-1 ring-border sm:p-7{% if forloop.last %} md:col-span-2{% endif %}">
+        <h3 class="heading-5">{{ item.lead }}</h3>
+        <p class="mt-2 body text-gray-700">{{ item.questions }}</p>
+        <p class="mt-4 flex items-start gap-2.5 body font-medium text-ink">
+          <img src="{{ '/images/logo-mark-compact.svg' | relative_url }}" alt="Fornelo:" width="20" height="20" class="mt-0.5 h-5 w-5 shrink-0">
+          <span>{{ item.answer }}</span>
+        </p>
+      </li>
+      {% endfor %}
+    </ol>
+
+    <div class="mx-auto mt-6 max-w-5xl rounded-2xl bg-primary p-6 text-center shadow-lg sm:mt-8 sm:p-8">
+      <p class="heading-4 text-white!">{{ i18n.process.payoff.title }}</p>
+      <p class="mx-auto mt-2 max-w-2xl body-large text-white/90">{{ i18n.process.payoff.text }}</p>
+      <a href="{{ site.app_url }}/register" data-sign-up
+         class="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-white px-8 py-3.5 text-sm font-semibold tracking-tight text-primary shadow-md transition-colors hover:bg-gray-100 sm:w-auto sm:text-base">{{ i18n.process.payoff.cta }}</a>
+    </div>
+  </div>
+</div>

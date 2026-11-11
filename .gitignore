@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+.bundle/
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
+*.log
+
+# Claude Code preview config
+.claude/

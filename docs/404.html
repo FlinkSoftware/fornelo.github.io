@@ -1,0 +1,24 @@
+---
+layout: default
+title: Pagina niet gevonden
+description: De opgevraagde pagina bestaat niet of is verplaatst.
+permalink: /404.html
+sitemap: false
+noindex: true
+---
+
+<section class="relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100 py-24">
+  <div class="mx-auto max-w-5xl px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl rounded-3xl bg-white p-8 text-center shadow-xl ring-1 ring-border sm:p-12">
+      <img src="{{ '/images/logo-mark.svg' | relative_url }}" alt="" aria-hidden="true" class="mx-auto h-16 w-16">
+      <p class="eyebrow mt-6">404</p>
+      <h1 class="mt-3 heading-1">Pagina niet gevonden</h1>
+      <p class="mt-6 body-large text-gray-700">De link klopt niet meer, de pagina is verplaatst, of het adres is verkeerd ingevoerd.</p>
+      <p class="mt-4 body-large text-gray-700">The page you are looking for does not exist, has moved, or the address was typed incorrectly.</p>
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href="{{ '/' | relative_url }}" class="button-primary rounded-lg bg-primary px-6 py-3 text-white shadow-sm hover:bg-primary-hover transition-colors">Naar de homepage</a>
+        <a href="{{ '/en/' | relative_url }}" class="button-secondary rounded-lg border-2 border-primary px-6 py-3 text-primary hover:bg-primary hover:text-white transition-colors">Go to the English homepage</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,9 @@
+---
+layout: null
+permalink: /robots.txt
+---
+# Everything may be crawled
+User-agent: *
+Allow: /
+
+Sitemap: {{ site.url }}/sitemap.xml

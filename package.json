@@ -1,0 +1,23 @@
+{
+  "name": "fornelo-site",
+  "private": true,
+  "scripts": {
+    "css:build": "tailwindcss -i ./resources/css/app.css -o ./docs/css/app.css --minify && cp ./docs/css/app.css ./docs/_includes/app.min.css",
+    "css:watch": "tailwindcss -i ./resources/css/app.css -o ./docs/_includes/app.min.css --watch --minify",
+    "js:build": "terser ./resources/js/app.js -o ./docs/js/app.js -c -m",
+    "js:watch": "npm run js:build && chokidar \"resources/js/*.js\" -c \"npm run js:build\"",
+    "assets:copy": "mkdir -p ./docs/fonts ./docs/images ./docs/video && cp ./resources/fonts/*.woff2 ./docs/fonts/ && cp -R ./resources/images/* ./docs/images/ && cp ./resources/video/*.mp4 ./docs/video/",
+    "assets:watch": "npm run assets:copy && chokidar \"resources/fonts/*\" \"resources/images/**/*\" \"resources/video/*\" -c \"npm run assets:copy\"",
+    "build": "npm run css:build && npm run js:build && npm run assets:copy",
+    "watch": "npm-run-all --parallel css:watch js:watch assets:watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.13",
+    "chokidar-cli": "^3.0.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tailwindcss": "^4.1.13",
+    "terser": "^5.36.0"
+  }
+}

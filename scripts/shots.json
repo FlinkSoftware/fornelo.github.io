@@ -1,0 +1,13 @@
+[
+  {"name": "recipes", "url": "/"},
+  {"name": "search", "url": "/", "steps": [{"type": ["input[type=search], input[placeholder*='Zoek']", "courgette onder 30 minuten"]}, {"wait": 1500}]},
+  {"name": "pantry", "url": "/?mode=pantry", "settle": 1200},
+  {"name": "detail", "url": "/recipes/a939a01e-9967-44b6-81d5-5c0bbca759fb", "fullPage": true},
+  {"name": "detail-top", "url": "/recipes/a939a01e-9967-44b6-81d5-5c0bbca759fb"},
+  {"name": "cook", "url": "/recipes/887a6823-df8c-4ba4-b5d6-67c42a0c1a9e/cook", "settle": 1200},
+  {"name": "shopping", "url": "/shopping-list"},
+  {"name": "collections", "url": "/collections"},
+  {"name": "collection", "url": "/collections/e0ff1ec0-e40e-49ad-b6fa-c0269b8b781d"},
+  {"name": "accounts", "url": "/settings/accounts"},
+  {"name": "subscription", "url": "/settings/subscription"}
+]

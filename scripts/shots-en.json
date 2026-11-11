@@ -1,0 +1,69 @@
+[
+ {
+  "name": "prep",
+  "url": "/",
+  "steps": [
+   {
+    "click": "button[aria-label*='otification']"
+   },
+   {
+    "wait": 800
+   },
+   {
+    "clickText": "Mark all as read"
+   },
+   {
+    "wait": 800
+   },
+   {
+    "press": "Escape"
+   }
+  ]
+ },
+ {
+  "name": "recipes",
+  "url": "/"
+ },
+ {
+  "name": "search",
+  "url": "/",
+  "steps": [
+   {
+    "type": [
+     "input[type=search], input[placeholder*='Search']",
+     "courgette"
+    ]
+   },
+   {
+    "wait": 1500
+   },
+   {
+    "eval": "document.activeElement && document.activeElement.blur()"
+   },
+   {
+    "wait": 600
+   }
+  ]
+ },
+ {
+  "name": "detail-top",
+  "url": "/recipes/21621799-6830-4fe3-bb6d-da882f18ed11"
+ },
+ {
+  "name": "cook",
+  "url": "/recipes/21621799-6830-4fe3-bb6d-da882f18ed11/cook",
+  "settle": 1200
+ },
+ {
+  "name": "shopping",
+  "url": "/shopping-list"
+ },
+ {
+  "name": "collections",
+  "url": "/collections"
+ },
+ {
+  "name": "accounts",
+  "url": "/settings/accounts"
+ }
+]

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+{% assign lang = page.lang | default: site.default_lang | default: 'nl' %}
+{% assign i18n = site.data.i18n[lang] %}
+<html lang="{{ lang }}" class="h-full bg-white">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% comment %}Dark mode before anything paints: the visitor's choice (localStorage "theme"), else the system setting{% endcomment %}
+    <script>
+        (function () {
+            try {
+                var choice = localStorage.getItem('theme');
+                if (choice === 'dark' || (!choice && window.matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');
+            } catch (e) { }
+        })();
+    </script>
+    {% comment %}jekyll-seo-tag writes the <title> ("Page | Fornelo"), description, canonical, Open Graph and Twitter tags{% endcomment %}
+    {% seo %}
+    {% if page.noindex %}<meta name="robots" content="noindex">{% endif %}
+
+    {% if page.url == '/' or page.url == '/en/' %}
+    <link rel="alternate" hreflang="nl" href="{{ '/' | absolute_url }}">
+    <link rel="alternate" hreflang="en" href="{{ '/en/' | absolute_url }}">
+    <link rel="alternate" hreflang="x-default" href="{{ '/' | absolute_url }}">
+    {% endif %}
+    {% comment %}A page in both languages names its twin in its front matter ("alternate: {nl: /x/, en: /en/x/}"){% endcomment %}
+    {% if page.alternate %}
+    <link rel="alternate" hreflang="nl" href="{{ page.alternate.nl | absolute_url }}">
+    <link rel="alternate" hreflang="en" href="{{ page.alternate.en | absolute_url }}">
+    <link rel="alternate" hreflang="x-default" href="{{ page.alternate.nl | absolute_url }}">
+    {% endif %}
+
+    <!-- The two fonts of the first screen, so neither waits behind the stylesheet -->
+    <link rel="preload" href="{{ '/fonts/karla.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ '/fonts/fraunces.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+    <link rel="dns-prefetch" href="{{ site.app_url }}">
+
+    <!-- Favicon: the same files as the app -->
+    <link rel="icon" type="image/svg+xml" href="{{ '/images/favicon/favicon.svg' | relative_url }}">
+    <link rel="icon" href="{{ '/images/favicon/favicon.ico' | relative_url }}" sizes="16x16 32x32 48x48">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/images/favicon/apple-touch-icon.png' | relative_url }}">
+    <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+    <meta name="theme-color" content="#f97316">
+    {% comment %}The whole stylesheet inline: one request less before the first paint. css:build writes the copy.{% endcomment %}
+    <style>{% include app.min.css %}</style>
+    {% if site.google_analytics_id != "" %}
+    <!-- Google Tag only after the visitor's first scroll, tap or key, or after three seconds: it is the heaviest
+         thing on the page and nothing of it is needed for what the visitor sees. -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', '{{ site.google_analytics_id }}');
+        (function () {
+            var loaded = false;
+            var local = /^(localhost|127\.0\.0\.1|\[::1\]|0\.0\.0\.0)$|\.(localhost|local|test)$/.test(location.hostname);
+            function load() {
+                if (loaded || local) return;
+                loaded = true;
+                var script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics_id }}';
+                document.head.appendChild(script);
+            }
+            ['scroll', 'pointerdown', 'keydown', 'touchstart'].forEach(function (type) {
+                window.addEventListener(type, load, { once: true, passive: true });
+            });
+            setTimeout(load, 3000);
+        })();
+    </script>
+    {% endif %}
+
+    <!-- Structured data (Schema.org): the app with its three plans, and the company behind it. The plans and prices
+         are the same as in _data/i18n.yml (pricing.plans) and the auth-server's fornelo.billing.prices. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "@id": "{{ site.url }}/#software",
+      "name": "Fornelo",
+      "url": "{{ site.url }}",
+      "description": {{ i18n.meta.description | jsonify }},
+      "applicationCategory": "LifestyleApplication",
+      "applicationSubCategory": {{ i18n.meta.category | jsonify }},
+      "operatingSystem": "iOS, Android, Web",
+      "inLanguage": ["nl-NL", "en"],
+      "availableLanguage": ["Dutch", "English"],
+      "isAccessibleForFree": true,
+      "installUrl": "{{ site.app_url }}/register",
+      "image": "{{ page.image | absolute_url }}",
+      "featureList": {{ i18n.meta.features | jsonify }},
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "0",
+        "highPrice": "4.99",
+        "offerCount": 3,
+        "url": "{{ page.url | absolute_url }}#pricing-section",
+        "offers": [{% for plan in i18n.pricing.plans %}
+          {
+            "@type": "Offer",
+            "name": {{ plan.name | jsonify }},
+            "description": {{ plan.description | jsonify }},
+            "price": "{{ plan.price_number }}",
+            "priceCurrency": "EUR",
+            "url": "{{ site.app_url }}/register",
+            "availability": "https://schema.org/InStock"{% if plan.price_number != "0" %},
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "{{ plan.price_number }}",
+              "priceCurrency": "EUR",
+              "valueAddedTaxIncluded": true,
+              "billingDuration": { "@type": "QuantitativeValue", "value": 1, "unitCode": "MON" }
+            }{% endif %}
+          }{% unless forloop.last %},{% endunless %}{% endfor %}
+        ]
+      },
+      "publisher": { "@id": "{{ site.url }}/#organization" },
+      "softwareHelp": { "@type": "WebPage", "url": "{% if lang == 'en' %}{{ '/en/faq/' | absolute_url }}{% else %}{{ '/veelgestelde-vragen/' | absolute_url }}{% endif %}" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "{{ site.url }}/#organization",
+      "name": "Fornelo",
+      "legalName": "Flink Software B.V.",
+      "parentOrganization": { "@type": "Organization", "name": "Flink Software B.V.", "url": "https://flinksoftware.com" },
+      "url": "{{ site.url }}",
+      "logo": "{{ '/images/logo-mark.svg' | absolute_url }}",
+      "address": { "@type": "PostalAddress", "addressCountry": "NL" },
+      "contactPoint": { "@type": "ContactPoint", "contactType": "Customer Service", "email": "{{ site.email }}" }
+    }
+    </script>
+    {% comment %}Only on pages that show questions: home (faq: home) and the FAQ page (faq: all){% endcomment %}
+    {% if page.faq %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "{{ lang }}",
+      "mainEntity": [{% if page.faq == 'all' %}{% assign faq_items = i18n.faq.items %}{% else %}{% assign faq_items = i18n.faq.items | where: 'home', true %}{% endif %}{% for item in faq_items %}
+        {
+          "@type": "Question",
+          "name": {{ item.question | strip_html | jsonify }},
+          "acceptedAnswer": { "@type": "Answer", "text": {{ item.answer | strip_html | jsonify }} }
+        }{% unless forloop.last %},{% endunless %}{% endfor %}
+      ]
+    }
+    </script>
+    {% endif %}
+</head>
+
+<body class="h-full text-text antialiased bg-gradient-to-br from-white via-background to-gray-100">
+    <a href="#main-content" class="skip-to-main">{{ i18n.nav.skip }}</a>
+
+    <div class="bg-gradient-to-br from-white via-background to-gray-50">
+        <header class="relative lg:sticky top-0 inset-x-0 z-50 bg-white">
+            {% include components/navigation.html %}
+        </header>
+        <main id="main-content">
+            {{ content }}
+        </main>
+        {% comment %}Footer anchors point at the home page in the page's language, so they work from every page{% endcomment %}
+        {% if lang == 'en' %}{% assign footer_home = '/en/' | relative_url %}{% else %}{% assign footer_home = '/' | relative_url %}{% endif %}
+        <footer class="bg-white border-t border-border">
+            <div class="mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:py-24 lg:px-8">
+                <div class="grid gap-12 md:gap-x-16 md:gap-y-12 md:grid-cols-2 lg:grid-cols-4">
+                    <div>
+                        <a href="{{ footer_home }}" class="inline-flex items-center gap-2.5" aria-label="Fornelo - Home">
+                            <img src="{{ '/images/logo-mark.svg' | relative_url }}" alt="" aria-hidden="true" class="h-9 w-9">
+                            <span class="wordmark">Fornelo</span>
+                        </a>
+                        <p class="mt-4 max-w-xs text-sm leading-7 text-gray-700">{{ i18n.footer.copy }}</p>
+                        <a href="mailto:{{ site.email }}" class="mt-6 inline-flex font-semibold text-primary hover:text-primary-hover transition-colors text-sm">{{ site.email }}</a>
+                        <h3 class="mt-8 text-sm font-bold uppercase tracking-wider text-gray-900">{{ i18n.footer.language_title }}</h3>
+                        <div class="mt-4 flex flex-wrap gap-3">
+                            {% for option in i18n.footer.languages %}
+                            <a href="{{ option.href | relative_url }}"
+                               class="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-ink hover:border-primary hover:text-primary transition-colors{% if lang == 'nl' and option.href == '/' %} bg-gray-100 border-primary text-primary-hover{% elsif lang == 'en' and option.href == '/en/' %} bg-gray-100 border-primary text-primary-hover{% endif %}">
+                                <span aria-hidden="true">{{ option.flag }}</span>
+                                {{ option.label }}
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-wider text-gray-900">{{ i18n.footer.quick_links_title }}</h3>
+                        <ul class="mt-6 space-y-3 text-sm">
+                            {% for link in i18n.footer.quick_links %}
+                            {% assign first = link.href | slice: 0 %}
+                            <li>
+                                <a href="{% if first == '#' %}{{ footer_home }}{{ link.href }}{% else %}{{ link.href | relative_url }}{% endif %}" class="text-gray-700 hover:text-primary transition-colors">{{ link.label }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-wider text-gray-900">{{ i18n.footer.app_title }}</h3>
+                        <ul class="mt-6 space-y-3 text-sm">
+                            {% for link in i18n.footer.app_links %}
+                            <li><a href="{{ site.app_url }}{{ link.href }}" class="text-gray-700 hover:text-primary transition-colors">{{ link.label }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-bold uppercase tracking-wider text-gray-900">{{ i18n.footer.company_title }}</h3>
+                        <p class="mt-6 max-w-xs text-sm leading-7 text-gray-700">{{ i18n.footer.company_text }}</p>
+                        <a href="https://flinksoftware.com" class="mt-3 inline-flex text-sm font-semibold text-primary hover:text-primary-hover">flinksoftware.com</a>
+                    </div>
+                </div>
+
+                <div class="mt-12 border-t border-gray-200 pt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between text-sm text-gray-600">
+                    <p>&copy; {{ site.time | date: "%Y" }} Fornelo · {{ i18n.footer.made_by }} <a href="https://flinksoftware.com" class="hover:text-primary transition-colors">Flink Software B.V.</a></p>
+                    <div class="flex flex-wrap items-center gap-6">
+                        {% for link in i18n.footer.legal %}
+                        <a href="{{ site.app_url }}{{ link.href }}" class="hover:text-primary transition-colors">{{ link.label }}</a>
+                        {% endfor %}
+                        {% assign ideas = i18n.footer.ideas %}
+                        {% assign subject = ideas.subject | url_encode | replace: '+', '%20' %}
+                        <button type="button" command="show-modal" commandfor="ideas-dialog" class="ideas-open">{{ ideas.link }}</button>
+                    </div>
+                </div>
+                {% comment %}A mailto link alone does nothing for people without a mail app (webmail users): a small window
+                shows the address to copy, the mail app and Gmail{% endcomment %}
+                <dialog id="ideas-dialog" aria-labelledby="ideas-title" class="m-auto w-[calc(100%-2rem)] max-w-md rounded-2xl p-0 shadow-2xl bg-white text-text backdrop:bg-ink/40">
+                    <div class="p-6 sm:p-8">
+                        <div class="flex items-start justify-between gap-4">
+                            <h2 id="ideas-title" class="heading-4">{{ ideas.title }}</h2>
+                            <button type="button" command="close" commandfor="ideas-dialog" class="-m-2 rounded-md p-2 text-gray-600 hover:bg-gray-100" aria-label="{{ ideas.close }}">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" class="size-5"><path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                            </button>
+                        </div>
+                        <p class="mt-3 body text-gray-700">{{ ideas.text }}</p>
+                        <div class="mt-5 flex items-center gap-2 rounded-lg border border-border bg-gray-50 p-2 pl-4">
+                            <span class="flex-1 truncate font-semibold text-ink">{{ site.email }}</span>
+                            <button type="button" data-copy="{{ site.email }}" data-copied="{{ ideas.copied }}" class="ideas-copy">{{ ideas.copy }}</button>
+                        </div>
+                        <div class="mt-5 flex flex-col gap-2">
+                            <a href="mailto:{{ site.email }}?subject={{ subject }}" data-mail-app class="button-primary w-full rounded-lg bg-primary px-4 py-2.5 text-center hover:bg-primary-hover">{{ ideas.mail_app }}</a>
+                            <p data-no-mail-app hidden role="status" class="rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-900">{{ ideas.no_mail_app }}</p>
+                            <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to={{ site.email }}&amp;su={{ subject }}" target="_blank" rel="noopener noreferrer" class="ideas-secondary button-secondary w-full">{{ ideas.gmail }}</a>
+                        </div>
+                    </div>
+                </dialog>
+            </div>
+        </footer>
+    </div>
+    {% if page.url == '/' or page.url == '/en/' %}
+    {% comment %}The screenshots open here at full size (app.js fills in the image). Escape, the close button and a click
+    beside the image close it; without JavaScript the screenshots stay plain images.{% endcomment %}
+    <dialog id="lightbox" aria-label="{{ i18n.features.enlarge }}" class="m-auto max-h-none max-w-none bg-transparent p-4 sm:p-8 backdrop:bg-ink/85">
+        <figure class="relative mx-auto w-fit">
+            <img data-lightbox-image src="" alt="" class="mx-auto block max-h-[85vh] w-auto max-w-[calc(100vw-2rem)] sm:max-w-[calc(100vw-4rem)] rounded-xl bg-white shadow-2xl">
+            <figcaption data-lightbox-caption class="mt-3 text-center text-sm text-white/90"></figcaption>
+            <button type="button" command="close" commandfor="lightbox" class="absolute -top-3 -right-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-ink shadow-lg hover:bg-gray-100" aria-label="{{ i18n.features.close }}">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" class="size-5"><path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </button>
+        </figure>
+    </dialog>
+    {% endif %}
+    <script defer src="{{ '/js/app.js' | relative_url }}"></script>
+</body>
+
+</html>

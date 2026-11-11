@@ -1,0 +1,78 @@
+<!-- Features: one block per thing you do with Fornelo, text beside a cut-out of the web app. A click on a cut-out
+     opens it full size in the lightbox (the layout's dialog, app.js). -->
+{% assign lang = page.lang | default: site.default_lang | default: 'nl' %}
+{% assign i18n = site.data.i18n[lang] %}
+<div id="feature-section" class="bg-white py-16 sm:py-24 lg:py-32 scroll-mt-24">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="text-center mb-12 sm:mb-14">
+            <h2 class="heading-2">
+                {{ i18n.features.title_prefix }} <span class="text-primary">{{ i18n.features.title_highlight }}</span>
+            </h2>
+            <p class="mx-auto mt-5 max-w-2xl body-large text-gray-700">{{ i18n.features.intro }}</p>
+        </div>
+
+        <div class="space-y-14 sm:space-y-16 lg:space-y-20">
+            {% for feature in i18n.features.sections %}
+            <div class="flex flex-col {% cycle 'lg:flex-row', 'lg:flex-row-reverse' %} items-center gap-8 lg:gap-12 py-3 sm:py-4">
+                <div class="w-full lg:flex-[5_1_0%] lg:min-w-0 flex flex-col justify-center">
+                    <div class="eyebrow inline-block px-4 py-1.5 bg-primary/10 rounded-full w-fit">
+                        {{ feature.eyebrow }}
+                    </div>
+                    {% if feature.title_words %}
+                    {% comment %}One word of the title is typed in turn into a slot as wide as the longest, so the heading
+                    does not move; without the effect the first word stays.{% endcomment %}
+                    {% assign title_parts = feature.title | split: '{words}' %}
+                    <h3 class="mt-3 heading-3">{{ title_parts[0] }}<span class="typed-slot typed-start text-primary">{% for word in feature.title_words %}<span class="typed-sizer" aria-hidden="true">{{ word }}|</span>{% endfor %}<span class="typed-text" data-type-words="{{ feature.title_words | jsonify | escape }}">{{ feature.title_words | first }}</span></span>{{ title_parts[1] }}</h3>
+                    {% else %}
+                    <h3 class="mt-3 heading-3">{{ feature.title }}</h3>
+                    {% endif %}
+                    <p class="mt-4 body-large text-gray-700">{{ feature.body }}</p>
+                    <ul class="mt-6 space-y-2 body-large text-gray-700">
+                        {% for bullet in feature.bullets %}
+                        <li class="flex items-start gap-3"><span class="text-primary font-bold flex-shrink-0 mt-0.5">✓</span> <span>{{ bullet }}</span></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <!-- A cut-out of the app on a soft panel: one image, or a second one in the corner (overlap) -->
+                <div class="w-full lg:flex-[7_1_0%] lg:min-w-0">
+                    <div class="relative rounded-3xl bg-gradient-to-br from-brand/10 via-brand/5 to-transparent p-4 sm:p-8">
+                        {% if feature.video %}
+                        {% comment %}The processing page while a page is read, spinners and all: a silent clip that plays by itself once it is on screen (app.js);
+                        the poster is the processing page, so without JavaScript or autoplay the clip is still a picture{% endcomment %}
+                        <video class="w-full rounded-xl bg-white shadow-xl ring-1 ring-black/5" poster="{{ feature.video.poster | relative_url }}" muted loop playsinline preload="none" aria-label="{{ feature.video.alt }}" data-autoplay-when-visible>
+                            <source src="{{ feature.video.src | relative_url }}" type="video/mp4">
+                        </video>
+                        {% else %}
+                        {% assign main = feature.images | first %}
+                        <button type="button" class="lightbox-trigger block w-full {% if main.narrow %}max-w-sm mx-auto{% endif %} rounded-xl" data-lightbox-src="{{ main.src | relative_url }}" data-lightbox-alt="{{ main.alt }}" aria-label="{{ i18n.features.enlarge }}: {{ main.alt }}">
+                            <img src="{{ main.src | relative_url }}" srcset="{{ main.src | replace: '.webp', '-800.webp' | relative_url }} 800w, {{ main.src | relative_url }} 1600w" sizes="(min-width: 1024px) 680px, calc(100vw - 80px)" alt="{{ main.alt }}" class="w-full rounded-xl bg-white shadow-xl ring-1 ring-black/5" loading="lazy" decoding="async">
+                        </button>
+                        {% endif %}
+                        {% if feature.layout == 'overlap' and feature.images.size > 0 and feature.video or feature.layout == 'overlap' and feature.images.size > 1 %}
+                        {% assign second = feature.images | last %}
+                        {% if second.narrow %}
+                        <button type="button" class="lightbox-trigger relative -mt-16 sm:-mt-28 ml-auto mr-2 sm:-mr-4 block w-[34%] sm:w-[26%] max-w-[12rem] rounded-2xl" data-lightbox-src="{{ second.src | relative_url }}" data-lightbox-alt="{{ second.alt }}" aria-label="{{ i18n.features.enlarge }}: {{ second.alt }}">
+                            <img src="{{ second.src | relative_url }}" alt="{{ second.alt }}" class="w-full rounded-2xl bg-white shadow-2xl ring-4 ring-ink/80" loading="lazy" decoding="async">
+                        </button>
+                        {% else %}
+                        <button type="button" class="lightbox-trigger relative -mt-12 sm:-mt-20 ml-auto mr-2 sm:-mr-4 block w-[58%] sm:w-[46%] max-w-sm rounded-xl" data-lightbox-src="{{ second.src | relative_url }}" data-lightbox-alt="{{ second.alt }}" aria-label="{{ i18n.features.enlarge }}: {{ second.alt }}">
+                            <img src="{{ second.src | relative_url }}" srcset="{{ second.src | replace: '.webp', '-800.webp' | relative_url }} 800w, {{ second.src | relative_url }} 1600w" sizes="(min-width: 1024px) 320px, 46vw" alt="{{ second.alt }}" class="w-full rounded-xl bg-white shadow-2xl ring-1 ring-black/5" loading="lazy" decoding="async">
+                        </button>
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="mt-16 sm:mt-20 grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-3">
+            {% for card in i18n.features.bottom_cards %}
+            <div class="rounded-2xl bg-gray-50 p-6 sm:p-8 ring-1 ring-border">
+                <h3 class="heading-5">{{ card.title }}</h3>
+                <p class="mt-3 body text-gray-700">{{ card.body }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

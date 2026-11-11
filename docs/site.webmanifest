@@ -1,0 +1,13 @@
+{
+  "name": "Fornelo",
+  "short_name": "Fornelo",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f97316",
+  "icons": [
+    { "src": "/images/logo-mark-compact.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/images/favicon/icon-maskable.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

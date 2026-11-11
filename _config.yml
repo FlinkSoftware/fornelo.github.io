@@ -1,0 +1,45 @@
+title: Fornelo
+# The address visitors write to; the footer, the ideas window and the structured data use it
+email: support@fornelo.nl
+description: >-
+  Fornelo is het receptenboek dat je kookboeken en tijdschriften leest: maak een foto en het
+  recept staat erin, doorzoekbaar, schaalbaar en op de boodschappenlijst. Op je telefoon, tablet en computer.
+default_lang: nl
+# jekyll-seo-tag: Open Graph locale, the share image and a large Twitter card for every page
+locale: nl_NL
+twitter:
+  card: summary_large_image
+# Google Analytics: leave empty to load nothing
+google_analytics_id: ""
+# The web app: sign-up, sign-in, pricing and the legal pages live there
+app_url: "https://fornelo.app"
+baseurl: ""
+url: "https://fornelo.nl"
+
+# GitHub Pages safe plugins
+plugins:
+  - jekyll-seo-tag
+
+# Build settings
+markdown: kramdown
+exclude:
+  - node_modules
+  - resources
+  - package.json
+  - package-lock.json
+  - README.md
+  - .gitignore
+  - .prettierrc
+  - Gemfile
+  - Gemfile.lock
+source: docs
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /images/og-image.png
+  - scope:
+      path: "en"
+    values:
+      image: /images/og-image-en.png

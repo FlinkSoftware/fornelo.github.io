@@ -1,0 +1,19 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{% assign pairs = "/|/en/,/veelgestelde-vragen/|/en/faq/" | split: "," %}
+{% for pair in pairs %}{% assign urls = pair | split: "|" %}{% for url in urls %}
+    <url>
+        <loc>{{ url | absolute_url }}</loc>
+        <changefreq>weekly</changefreq>
+        <priority>{% if url == '/' %}1.0{% elsif url == '/en/' %}0.9{% else %}0.6{% endif %}</priority>
+        <xhtml:link rel="alternate" hreflang="nl" href="{{ urls[0] | absolute_url }}" />
+        <xhtml:link rel="alternate" hreflang="en" href="{{ urls[1] | absolute_url }}" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="{{ urls[0] | absolute_url }}" />
+    </url>
+{% endfor %}{% endfor %}
+</urlset>

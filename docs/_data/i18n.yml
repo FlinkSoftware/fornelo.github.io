@@ -1,0 +1,693 @@
+nl:
+  meta:
+    description: "Fornelo is het receptenboek dat je kookboeken en tijdschriften leest: maak een foto en het recept staat erin, doorzoekbaar, schaalbaar en op de boodschappenlijst. Voor iPhone, Android en de browser. Gratis te beginnen, met Premium en Familie voor meer AI-scans en een gedeeld receptenboek."
+    category: "Receptenapp"
+    features:
+      - "Een foto van een kookboekpagina of tijdschrift wordt een recept: ingrediënten, stappen, tijd, porties, keuken en tags"
+      - "Meerdere pagina's per recept; de uitgelezen tekst blijft bij het recept"
+      - "Recepten van websites via de link, of zelf intypen (telt niet als AI-scan)"
+      - "Zoeken op ingrediënt, keukengerei, tag, keuken, tijd en moeilijkheid; 'Wat heb ik in huis?'"
+      - "Kookmodus: scherm blijft aan, stappen afvinken, timers uit de stappen, porties schalen"
+      - "Boodschappenlijst die ingrediënten combineert, zonder je basisvoorraad; live gedeeld met je gezin"
+      - "Collecties, een recept delen met een link, prullenbak"
+      - "Eén receptenboek voor tot zes mensen (Familie)"
+      - "Apps voor iPhone en Android, met offline lezen en koken, de documentscanner van het systeem en timers op het vergrendelscherm"
+      - "Inloggen met e-mail, Google, Microsoft of Apple"
+      - "Je gegevens downloaden en je account verwijderen, wanneer je wilt"
+      - "Nederlands en Engels, licht en donker"
+
+  nav:
+    label: "Hoofdnavigatie"
+    skip: "Naar de inhoud"
+    menu_open: "Open menu"
+    menu_close: "Menu sluiten"
+    links:
+      home: "Home"
+      features: "Wat je ermee doet"
+      pricing: "Prijzen"
+      faq: "Veelgestelde vragen"
+    sign_in: "Inloggen"
+    sign_up: "Gratis beginnen"
+    theme_dark: "Donkere modus"
+    theme_light: "Lichte modus"
+
+  hero:
+    announcement_badge: "Nieuw"
+    announcement: "Fornelo voor iPhone en Android"
+    kicker: "Jouw receptenboek, uit al je kookboeken"
+    title: "Maak een foto van het recept. Fornelo typt het over."
+    subtitle: "Uit een kookboek, een tijdschrift of van een website: Fornelo leest de foto en maakt er een recept van dat je kunt doorzoeken, schalen en op de boodschappenlijst zetten. Op je telefoon, tablet en computer."
+    cta_primary: "Gratis beginnen"
+    cta_secondary: "Zo werkt het"
+    assurances:
+      - "Gratis: 10 AI-scans per maand"
+      - "Geen creditcard nodig"
+      - "iPhone, Android en browser"
+    image: "/images/fornelo/web-hero-detail.webp"
+    scan_image: "/images/fornelo/scan-shakshuka.webp"
+    image_alt: "Het recept Shakshuka met feta in Fornelo: foto, tags, collecties, tijd, porties, ingrediënten en bereiding"
+    photo_alt: "De pagina waar het recept van gelezen is"
+    scan_tag: "Uitgelezen uit deze pagina"
+    caption_strong: "Eén foto van de pagina,"
+    caption: "en dit staat er in je receptenboek."
+
+  app_band:
+    eyebrow: "Voor iPhone en Android"
+    title: "Je receptenboek in je broekzak, ook zonder bereik."
+    body: "De apps houden je hele receptenboek lokaal bij, met de foto's. In de supermarkt zonder bereik of op een camping: je recepten en je boodschappenlijst staan er gewoon."
+    bullets:
+      - "Scannen met de documentscanner van je telefoon, of deel een foto naar Fornelo"
+      - "Timers die doorlopen op het vergrendelscherm en een melding geven als ze aflopen"
+      - "Een melding zodra een recept is uitgelezen"
+      - "Vergrendelen met Face ID of je vingerafdruk"
+    note: "Hetzelfde account als in de browser: wat je op je telefoon scant, staat ook op je computer."
+    phones:
+      - src: "/images/fornelo/ios-cook-running.webp"
+        alt: "De kookmodus op een iPhone: stap 1 van Shakshuka met feta met een lopende timer van 5 minuten"
+        caption: "iPhone · kookmodus"
+      - src: "/images/fornelo/android-detail.webp"
+        alt: "Een recept op een Android-telefoon: de foto, tags, collecties en de tijd van Shakshuka met feta"
+        caption: "Android · recept"
+
+  process:
+    title: "Herken je dit?"
+    intro: "Vijf momenten uit een gewone week in de keuken."
+    payoff:
+      title: "Herken je dit?"
+      text: "Dan is Fornelo voor jou gemaakt. Begin gratis, met 10 AI-scans per maand en zoveel recepten als je wilt."
+      cta: "Gratis beginnen"
+    items:
+      - lead: "Dat ene recept staat in dat ene kookboek."
+        questions: "Welk boek was het ook alweer? Welke pagina? En wie heeft het geleend?"
+        answer: "Eén foto en het recept staat in Fornelo. Doorzoekbaar, op al je apparaten, mét de foto van de pagina erbij."
+      - lead: "Die tijdschriftpagina staat in je fotorol."
+        questions: "Tussen vierduizend andere foto's. Zoeken op 'nasi' helpt daar niet."
+        answer: "Fornelo leest de pagina uit en maakt er een recept van. De foto zelf blijft erbij bewaard."
+      - lead: "Je staat in de supermarkt."
+        questions: "Wat had je ook alweer nodig voor dat recept? En hoeveel?"
+        answer: "Eén tik op het recept en alles staat op de boodschappenlijst, zonder wat je toch al in huis hebt."
+      - lead: "Het recept is voor vier. Jullie zijn met zes."
+        questions: "Hoofdrekenen boven een pan, met een telefoon die steeds op zwart gaat."
+        answer: "Schuif de porties naar zes en elke hoeveelheid rekent mee. In de kookmodus blijft het scherm aan."
+      - lead: "\"Heb jij de melk gehaald?\" \"Ik dacht dat jij…\""
+        questions: "Twee boodschappenlijstjes, drie telefoons, één huishouden."
+        answer: "Met Familie delen jullie één lijst. Wat de een in het mandje legt, verdwijnt bij de ander van de lijst. Meteen."
+
+  features:
+    enlarge: "Vergroot"
+    close: "Sluiten"
+    title_prefix: "Van foto"
+    title_highlight: "tot op tafel"
+    intro: "Alles wat je met een recept doet, op één plek: bewaren, terugvinden, koken en boodschappen doen."
+    sections:
+      - eyebrow: "Scannen"
+        title: "Uit {words}"
+        title_words:
+          - "een kookboek."
+          - "een tijdschrift."
+          - "een schermafbeelding."
+          - "een website."
+        body: "Maak een foto van de pagina, of van meerdere pagina's als het recept doorloopt. Fornelo leest de tekst, haalt het recept eruit en zet het klaar om te controleren: titel, ingrediënten met hoeveelheden, stappen, tijd, porties, keuken en tags. Jij kijkt het na en bevestigt. Cursieve opmerkingen, twee kolommen, een tweede ingrediëntenlijst: het mag."
+        bullets:
+          - "Gedrukte pagina's uit boeken en tijdschriften; het geeft aan hoe zeker het was"
+          - "Een recept van een website: plak de link"
+          - "Zelf intypen kan altijd en telt nooit als AI-scan"
+        layout: "overlap"
+        video:
+          src: "/video/scan-nl.mp4"
+          poster: "/images/fornelo/scan-poster.webp"
+          alt: "Fornelo leest een pagina uit: foto's geüpload, tekst herkennen, ingrediënten en stappen herkennen, klaarzetten om te zoeken"
+        images:
+          - src: "/images/fornelo/web-add-review.webp"
+            alt: "Het uitgelezen recept Shakshuka met feta klaar om te controleren: titel, keuken, tijd, porties en de ingrediënten naast de gescande pagina"
+
+      - eyebrow: "Zoeken"
+        title: "Zoek zoals je denkt."
+        body: "Typ 'courgette zonder noten onder 30 minuten' en Fornelo begrijpt wat je bedoelt. Zoek op ingrediënt, keukengerei, tag, keuken, tijd of moeilijkheid, en zie bij elk resultaat waarom het past. Of draai het om: vink aan wat je in huis hebt en zie wat je ermee kunt maken."
+        bullets:
+          - "Op ingrediënt, keukengerei, tag, keuken, tijd en moeilijkheid"
+          - "'Wat heb ik in huis?' zoekt vanuit je voorraad"
+          - "Een zoekopdracht is een link: bewaar hem of deel hem"
+        images:
+          - src: "/images/fornelo/web-search.webp"
+            alt: "Zoeken naar 'courgette onder 30 minuten': Fornelo leest het als hoogstens 30 minuten en vindt drie recepten"
+
+      - eyebrow: "Koken"
+        title: "Kookmodus, met timers die zichzelf zetten."
+        body: "Staat er '15 minuten koken' in een stap, dan staat er een timer naast. Het scherm blijft aan, je vinkt stappen en ingrediënten af, en je schaalt de porties voordat je begint: elke hoeveelheid rekent mee. Vette vingers? Een tik op de stap is genoeg."
+        bullets:
+          - "Timers uit de stappen, ook meerdere tegelijk"
+          - "Porties schalen, hoeveelheden rekenen mee"
+          - "Grote letters met de Aa-knop, scherm blijft aan"
+        images:
+          - src: "/images/fornelo/web-cook.webp"
+            alt: "De kookmodus: stap 1 van 4 van Shakshuka met feta, een timer van 5 minuten en de ingrediënten om af te vinken"
+
+      - eyebrow: "Boodschappen"
+        title: "Eén lijst, voor iedereen die meekookt."
+        body: "Zet een recept op de boodschappenlijst en Fornelo telt de ingrediënten bij elkaar: drie uien voor twee recepten staan er één keer. Wat je altijd in huis hebt, zoals zout en olie, blijft weg. In Familie is de lijst van het hele gezin: wie afvinkt, dat zien de anderen meteen."
+        bullets:
+          - "Ingrediënten van meerdere recepten gecombineerd"
+          - "Je basisvoorraad komt er niet op"
+          - "Live gedeeld, en in de app ook zonder bereik af te vinken"
+        layout: "overlap"
+        images:
+          - src: "/images/fornelo/web-shopping.webp"
+            alt: "De boodschappenlijst met de ingrediënten van twee recepten en wat je zelf toevoegde"
+          - src: "/images/fornelo/android-shopping.webp"
+            alt: "Dezelfde boodschappenlijst op een Android-telefoon"
+            narrow: true
+
+    bottom_cards:
+      - title: "Collecties"
+        body: "Groepeer recepten zoals jij wilt: weekmenu's, kerst, snelle doordeweekse avonden. Een recept mag in meer dan één collectie."
+      - title: "Delen met een link"
+        body: "Stuur een recept naar iemand zonder Fornelo. Die opent de link en ziet het recept, netjes opgemaakt. Jij kunt de link altijd weer intrekken."
+      - title: "Jouw gegevens zijn van jou"
+        body: "Download je hele receptenboek met foto's als zip, en je persoonsgegevens als JSON. Je account verwijderen doe je zelf, in één keer."
+
+  family:
+    eyebrow: "Familie"
+    title_prefix: "Eén receptenboek"
+    title_highlight: "voor het hele gezin"
+    body: "Met Familie delen tot zes mensen één receptenboek, ieder met een eigen inlog. Wat de een scant, ziet de ander. Collecties, de boodschappenlijst en de recepten zijn van jullie samen, en ieder houdt daarnaast een eigen receptenboek als hij dat wil."
+    bullets:
+      - "Tot zes leden, uitgenodigd per e-mail"
+      - "Eén boodschappenlijst, live voor iedereen"
+      - "300 AI-scans per maand, voor het hele boek"
+      - "Lid van meerdere receptenboeken? Je wisselt met één tik"
+    cta: "Bekijk Familie"
+    image: "/images/fornelo/web-accounts.webp"
+    image_alt: "Instellingen › Receptenboeken: het abonnement Familie met 300 AI-scans, de drie leden Sanne, Mark en Fleur, en twee geaccepteerde uitnodigingen"
+
+  pricing:
+    title_prefix: "Eerlijke"
+    title_highlight: "prijzen"
+    intro: "Beginnen is gratis, voor altijd. Een abonnement geeft je meer AI-scans per maand, en met Familie kook je samen in één receptenboek. Alle prijzen inclusief btw."
+    popular: "Meest gekozen"
+    plans:
+      - name: "Gratis"
+        description: "Voor wie wil proberen, of weinig scant."
+        price: "€ 0"
+        price_number: "0"
+        period: ""
+        bullets:
+          - "10 AI-scans per maand"
+          - "Zoveel recepten als je wilt, zelf intypen telt niet mee"
+          - "Zoeken, kookmodus, timers en porties schalen"
+          - "Boodschappenlijst en collecties"
+          - "Apps voor iPhone en Android, en de browser"
+          - "Voor één persoon"
+        cta: "Gratis beginnen"
+      - name: "Premium"
+        description: "Voor wie de kookboekenkast wil leegscannen."
+        price: "€ 2,99"
+        price_number: "2.99"
+        period: "/ maand"
+        alternatives: "Of € 24,99 per jaar, of € 59,99 voor altijd."
+        highlighted: true
+        bullets:
+          - "Alles van Gratis"
+          - "100 AI-scans per maand"
+          - "14 dagen gratis proberen, per maand opzegbaar"
+          - "Voor één persoon"
+        cta: "14 dagen gratis proberen"
+      - name: "Familie"
+        description: "Voor een huishouden dat samen kookt."
+        price: "€ 4,99"
+        price_number: "4.99"
+        period: "/ maand"
+        alternatives: "Of € 39,99 per jaar, of € 99,99 voor altijd."
+        bullets:
+          - "Alles van Premium"
+          - "300 AI-scans per maand"
+          - "Tot 6 leden in één receptenboek"
+          - "Eén boodschappenlijst, live voor iedereen"
+          - "14 dagen gratis proberen, per maand opzegbaar"
+        cta: "14 dagen gratis proberen"
+    notes:
+      - "Nieuw bij Fornelo? Een abonnement per maand of per jaar begint met 14 dagen gratis; zeg je in die tijd op, dan betaal je niets."
+      - "Je betaalt op de website, of in de app via de App Store of Google Play. Opzeggen kan altijd in je instellingen."
+      - "Voor altijd betaal je één keer en daarna nooit meer."
+
+  faq:
+    title_prefix: ""
+    title_highlight: "Veelgestelde"
+    title_suffix: "vragen"
+    items:
+      - question: "Wat is Fornelo?"
+        answer: "Een receptenboek dat je zelf vult, uit wat je al hebt: kookboeken, tijdschriften, websites. Je maakt een foto en Fornelo maakt er een recept van dat je kunt doorzoeken, schalen, koken en op de boodschappenlijst zetten. Het werkt op je telefoon, tablet en computer, met één account."
+        home: true
+      - question: "Hoe goed leest Fornelo een foto?"
+        answer: "Een gedrukte pagina leest het bijna altijd goed, ook met twee kolommen, cursieve opmerkingen of een tweede ingrediëntenlijst, en Fornelo zegt erbij hoe zeker het was. Handgeschreven recepten leest Fornelo nog niet; die typ je zelf in. Je kijkt elk recept na voordat je het bevestigt, en de uitgelezen tekst en de foto blijven bij het recept staan, zodat je altijd kunt terugkijken."
+        home: true
+      - question: "Wat is een AI-scan, en wat telt mee?"
+        answer: "Elke keer dat Fornelo een foto of een link voor je uitleest, is één AI-scan. Een recept met drie foto's is dus één scan. Zelf een recept intypen telt nooit mee. Gratis heb je er 10 per maand, Premium 100 en Familie 300, voor het hele receptenboek samen."
+        home: true
+      - question: "Werkt Fornelo op mijn telefoon?"
+        answer: "Ja. Er zijn apps voor iPhone en Android, en Fornelo werkt in elke moderne browser. Je logt overal in met hetzelfde account; wat je op je telefoon scant, staat meteen op je computer. De apps houden je receptenboek ook lokaal bij, zodat je zonder bereik kunt lezen en koken."
+        home: true
+      - question: "Kan ik samen met mijn gezin één receptenboek hebben?"
+        answer: "Ja, met Familie. Tot zes mensen delen één receptenboek, ieder met een eigen inlog. Recepten, collecties en de boodschappenlijst zijn van jullie samen, en wie afvinkt, dat zien de anderen meteen. Je kunt daarnaast een eigen receptenboek houden en wisselt met één tik."
+        home: true
+      - question: "Hoe werkt de boodschappenlijst?"
+        answer: "Zet een recept op de lijst vanaf het recept zelf, eventueel voor meer of minder personen. Fornelo telt de ingrediënten van verschillende recepten bij elkaar en laat weg wat in je basisvoorraad zit, zoals zout, peper en olie. Je kunt ook losse dingen toevoegen. In de app vink je af zonder bereik; zodra je weer verbinding hebt, loopt het gelijk."
+      - question: "Kan ik recepten van websites toevoegen?"
+        answer: "Ja. Plak de link en Fornelo haalt het recept op, net als bij een foto. Het telt als één AI-scan. Een schermafbeelding van een recept werkt ook: die scan je als foto."
+      - question: "Werkt het offline?"
+        answer: "In de apps voor iPhone en Android: ja, lezen en koken. Je hele receptenboek staat op je telefoon, met de foto's, en de boodschappenlijst is zonder bereik af te vinken. Scannen, bewerken en beheren hebben verbinding nodig. In de browser is er altijd verbinding nodig."
+      - question: "Wat gebeurt er met mijn foto's en gegevens?"
+        answer: "Je recepten en foto's zijn van jou. Ze staan in je eigen receptenboek en Fornelo gebruikt ze nergens anders voor. Wil je meehelpen het uitlezen te verbeteren, dan kun je dat aanzetten; dan gebruiken we de uitgelezen tekst en je correcties, zonder foto's en zonder gegevens over jou, en nooit van recepten die je als eigen of familierecept markeert. Je kunt je hele receptenboek downloaden als zip en je account zelf verwijderen."
+        home: true
+      - question: "Hoe betaal ik, en kan ik opzeggen?"
+        answer: "Op de website, of in de app via de App Store of Google Play. Een abonnement per maand of per jaar begint met 14 dagen gratis; zeg je in die tijd op, dan betaal je niets. Daarna kun je altijd opzeggen in je instellingen; je houdt het tot het einde van de betaalde periode. Voor altijd betaal je één keer. Alle prijzen zijn inclusief btw."
+        home: true
+      - question: "Kan ik een recept delen met iemand zonder Fornelo?"
+        answer: "Ja. Maak een deellink bij het recept en stuur die door. Wie hem opent ziet het recept, netjes opgemaakt, zonder account. Je kunt de link altijd weer intrekken."
+      - question: "Hoe log ik in?"
+        answer: "Met je e-mailadres en een wachtwoord, of met Google, Microsoft of Apple. Je kunt meerdere manieren aan één account koppelen. In de app kun je Fornelo daarnaast vergrendelen met Face ID, Touch ID of je vingerafdruk."
+      - question: "In welke talen is Fornelo er?"
+        answer: "Nederlands en Engels, in de apps, de browser en de e-mails. Recepten lees je in de taal waarin ze geschreven zijn; Fornelo vertaalt ze niet."
+    all_link: "Meer vragen en antwoorden"
+    page_title: "Veelgestelde vragen"
+    page_intro: "Wat mensen ons vragen voordat ze beginnen. Staat jouw vraag er niet bij? Mail ons."
+
+  footer_cta:
+    title_prefix: "Je recepten,"
+    title_highlight: "allemaal op één plek."
+    intro: "Begin met de foto van dat ene recept dat je steeds kwijt bent. Over een paar minuten staat het in je receptenboek, op al je apparaten."
+    pricing_cta: "Bekijk de prijzen"
+    questions: "Vragen? Stuur een e-mail naar"
+
+  share:
+    label: "Delen"
+    native: "Delen…"
+    via: "Delen via"
+    email: "e-mail"
+    copy: "Link kopiëren"
+    copied: "Gekopieerd"
+    band_title: "Ken je iemand die hier iets aan heeft?"
+    band_prefix: "Ken je iemand die"
+    band_phrases:
+      - "uit kookboeken kookt?"
+      - "oma's recepten bewaart? ❤️"
+      - "altijd de melk vergeet? 😉"
+    band_text: "Een vriendin, je zus, de buurman met die kast vol kookboeken: stuur Fornelo door. Dan staan hun recepten straks ook op één plek."
+    band_share_text: "Fornelo: maak een foto van een recept en het staat in je receptenboek, doorzoekbaar en op de boodschappenlijst."
+
+  footer:
+    copy: "Het receptenboek dat je kookboeken leest. Maak een foto, en het recept staat op al je apparaten."
+    made_by: "Fornelo is een product van"
+    legal:
+      - label: "Gebruiksvoorwaarden"
+        href: "/voorwaarden"
+      - label: "Privacybeleid"
+        href: "/privacy"
+    ideas:
+      link: "Ideeën & suggesties"
+      title: "Ideeën en suggesties"
+      text: "Mis je iets in Fornelo, of kan iets beter? Mail het ons, we lezen alles."
+      subject: "Idee voor Fornelo"
+      copy: "Kopieer"
+      copied: "Gekopieerd"
+      mail_app: "Open je mailprogramma"
+      gmail: "Open in Gmail"
+      no_mail_app: "Opent er niets? Dan is er op dit apparaat geen mailprogramma ingesteld. Kopieer het adres of open Gmail."
+      close: "Sluiten"
+    quick_links_title: "Snel naar"
+    quick_links:
+      - label: "Wat je ermee doet"
+        href: "#feature-section"
+      - label: "Voor het hele gezin"
+        href: "#family-section"
+      - label: "Prijzen"
+        href: "#pricing-section"
+      - label: "Veelgestelde vragen"
+        href: "/veelgestelde-vragen/"
+    app_title: "De app"
+    app_links:
+      - label: "Inloggen"
+        href: "/login"
+      - label: "Account aanmaken"
+        href: "/register"
+      - label: "Abonnementen"
+        href: "/pricing"
+      - label: "Herroepingsformulier"
+        href: "/herroepingsformulier"
+    company_title: "Over ons"
+    company_text: "Fornelo wordt gemaakt door Flink Software B.V. in Nederland. Klein team, grote kookboekenkast."
+    language_title: "Taal"
+    languages:
+      - label: "Nederlands"
+        flag: "🇳🇱"
+        href: "/"
+      - label: "English"
+        flag: "🇬🇧"
+        href: "/en/"
+
+en:
+  meta:
+    description: "Fornelo is the recipe book that reads your cookbooks and magazines: take a photo and the recipe is in, searchable, scalable and on the shopping list. For iPhone, Android and the browser. Free to start, with Premium and Family for more AI scans and a shared recipe book."
+    category: "Recipe app"
+    features:
+      - "A photo of a cookbook page or magazine becomes a recipe: ingredients, steps, time, servings, cuisine and tags"
+      - "Several pages per recipe; the text that was read stays with the recipe"
+      - "Recipes from websites through the link, or typed in yourself (not an AI scan)"
+      - "Search by ingredient, equipment, tag, cuisine, time and difficulty; 'What do I have in?'"
+      - "Cooking mode: the screen stays on, tick off steps, timers from the steps, scale servings"
+      - "A shopping list that combines ingredients, without your staples; shared live with your family"
+      - "Collections, sharing a recipe with a link, a bin"
+      - "One recipe book for up to six people (Family)"
+      - "Apps for iPhone and Android, with offline reading and cooking, the system's document scanner and timers on the lock screen"
+      - "Sign in with e-mail, Google, Microsoft or Apple"
+      - "Download your data and delete your account, whenever you want"
+      - "Dutch and English, light and dark"
+
+  nav:
+    label: "Main navigation"
+    skip: "Skip to main content"
+    menu_open: "Open menu"
+    menu_close: "Close menu"
+    links:
+      home: "Home"
+      features: "What you do with it"
+      pricing: "Pricing"
+      faq: "FAQ"
+    sign_in: "Sign in"
+    sign_up: "Start for free"
+    theme_dark: "Dark mode"
+    theme_light: "Light mode"
+
+  hero:
+    announcement_badge: "New"
+    announcement: "Fornelo for iPhone and Android"
+    kicker: "Your recipe book, from all your cookbooks"
+    title: "Take a photo of the recipe. Fornelo types it out."
+    subtitle: "From a cookbook, a magazine or a website: Fornelo reads the photo and turns it into a recipe you can search, scale and put on the shopping list. On your phone, tablet and computer."
+    cta_primary: "Start for free"
+    cta_secondary: "How it works"
+    assurances:
+      - "Free: 10 AI scans a month"
+      - "No credit card needed"
+      - "iPhone, Android and browser"
+    image: "/images/fornelo/en-web-hero-detail.webp"
+    scan_image: "/images/fornelo/en-scan-shakshuka.webp"
+    image_alt: "The recipe Shakshuka with feta in Fornelo: photo, tags, collections, time, servings, ingredients and method"
+    photo_alt: "The page the recipe was read from"
+    scan_tag: "Read from this page"
+    caption_strong: "One photo of the page,"
+    caption: "and this is what is in your recipe book."
+
+  app_band:
+    eyebrow: "For iPhone and Android"
+    title: "Your recipe book in your pocket, even without signal."
+    body: "The apps keep your whole recipe book on your phone, photos included. In a supermarket without signal or at a campsite: your recipes and your shopping list are simply there."
+    bullets:
+      - "Scan with your phone's document scanner, or share a photo to Fornelo"
+      - "Timers that keep counting on the lock screen and ring when they are done"
+      - "A notification as soon as a recipe has been read"
+      - "Lock with Face ID or your fingerprint"
+    note: "The same account as in the browser: what you scan on your phone is on your computer too."
+    phones:
+      - src: "/images/fornelo/en-ios-cook-running.webp"
+        alt: "Cooking mode on an iPhone: step 1 of Shakshuka with feta with a running 5-minute timer"
+        caption: "iPhone · cooking mode"
+      - src: "/images/fornelo/en-android-detail.webp"
+        alt: "A recipe on an Android phone: the photo, tags, collections and time of Shakshuka with feta"
+        caption: "Android · recipe"
+
+  process:
+    title: "Sound familiar?"
+    intro: "Five moments from an ordinary week in the kitchen."
+    payoff:
+      title: "Sound familiar?"
+      text: "Then Fornelo was made for you. Start for free, with 10 AI scans a month and as many recipes as you like."
+      cta: "Start for free"
+    items:
+      - lead: "That one recipe is in that one cookbook."
+        questions: "Which book was it again? Which page? And who borrowed it?"
+        answer: "One photo and the recipe is in Fornelo. Searchable, on all your devices, with the photo of the page next to it."
+      - lead: "That magazine page is in your camera roll."
+        questions: "Among four thousand other photos. Searching for 'nasi' does not help there."
+        answer: "Fornelo reads the page and turns it into a recipe. The photo itself stays with it."
+      - lead: "You are standing in the supermarket."
+        questions: "What did you need for that recipe again? And how much?"
+        answer: "One tap on the recipe and everything is on the shopping list, without what you already have at home."
+      - lead: "The recipe serves four. There are six of you."
+        questions: "Mental arithmetic over a pan, with a phone that keeps going dark."
+        answer: "Slide the servings to six and every amount follows. In cooking mode the screen stays on."
+      - lead: "\"Did you get the milk?\" \"I thought you…\""
+        questions: "Two shopping lists, three phones, one household."
+        answer: "With Family you share one list. What one of you puts in the basket disappears from the other's list. Instantly."
+
+  features:
+    enlarge: "Enlarge"
+    close: "Close"
+    title_prefix: "From photo"
+    title_highlight: "to the table"
+    intro: "Everything you do with a recipe, in one place: keep it, find it again, cook it and shop for it."
+    sections:
+      - eyebrow: "Scanning"
+        title: "From {words}"
+        title_words:
+          - "a cookbook."
+          - "a magazine."
+          - "a screenshot."
+          - "a website."
+        body: "Take a photo of the page, or of several pages when the recipe runs on. Fornelo reads the text, pulls out the recipe and puts it up for checking: title, ingredients with amounts, steps, time, servings, cuisine and tags. You look it over and confirm. Notes in italics, two columns, a second ingredient list: all fine."
+        bullets:
+          - "Printed pages from books and magazines; it tells you how sure it was"
+          - "A recipe from a website: paste the link"
+          - "Typing it in yourself is always possible and never counts as an AI scan"
+        layout: "overlap"
+        video:
+          src: "/video/scan-en.mp4"
+          poster: "/images/fornelo/en-scan-poster.webp"
+          alt: "Fornelo reading a page: photos uploaded, reading the text, recognising ingredients and steps, preparing for search"
+        images:
+          - src: "/images/fornelo/en-web-add-review.webp"
+            alt: "The recipe Shakshuka with feta that was read, ready for checking: title, cuisine, time, servings and the ingredients beside the scanned page"
+
+      - eyebrow: "Search"
+        title: "Search the way you think."
+        body: "Type 'courgette without nuts under 30 minutes' and Fornelo understands what you mean. Search by ingredient, equipment, tag, cuisine, time or difficulty, and see for every result why it matches. Or turn it around: tick what you have in and see what you can make with it."
+        bullets:
+          - "By ingredient, equipment, tag, cuisine, time and difficulty"
+          - "'What do I have in?' searches from your pantry"
+          - "A search is a link: bookmark it or share it"
+        images:
+          - src: "/images/fornelo/en-web-search.webp"
+            alt: "Searching for 'courgette under 30 minutes': Fornelo reads it as at most 30 minutes and finds three recipes"
+
+      - eyebrow: "Cooking"
+        title: "Cooking mode, with timers that set themselves."
+        body: "Does a step say 'boil for 15 minutes'? Then a timer sits next to it. The screen stays on, you tick off steps and ingredients, and you scale the servings before you start: every amount follows. Greasy fingers? A tap on the step is enough."
+        bullets:
+          - "Timers from the steps, several at once if you like"
+          - "Scale the servings, the amounts follow"
+          - "Large type with the Aa button, the screen stays on"
+        images:
+          - src: "/images/fornelo/en-web-cook.webp"
+            alt: "Cooking mode: step 1 of 4 of Shakshuka with feta, a 5-minute timer and the ingredients to tick off"
+
+      - eyebrow: "Shopping"
+        title: "One list, for everyone who cooks along."
+        body: "Put a recipe on the shopping list and Fornelo adds the ingredients up: three onions for two recipes appear once. What you always have in, such as salt and oil, stays off. In Family the list belongs to the whole household: whoever ticks something off, the others see it at once."
+        bullets:
+          - "Ingredients of several recipes combined"
+          - "Your staples stay off the list"
+          - "Shared live, and in the app ticked off without signal too"
+        layout: "overlap"
+        images:
+          - src: "/images/fornelo/en-web-shopping.webp"
+            alt: "The shopping list with the ingredients of two recipes and what you added yourself"
+          - src: "/images/fornelo/en-android-shopping.webp"
+            alt: "The same shopping list on an Android phone"
+            narrow: true
+
+    bottom_cards:
+      - title: "Collections"
+        body: "Group recipes the way you like: weekly menus, Christmas, quick weeknights. A recipe can sit in more than one collection."
+      - title: "Share with a link"
+        body: "Send a recipe to someone without Fornelo. They open the link and see the recipe, neatly laid out. You can withdraw the link at any time."
+      - title: "Your data is yours"
+        body: "Download your whole recipe book with photos as a zip, and your personal data as JSON. You delete your account yourself, in one go."
+
+  family:
+    eyebrow: "Family"
+    title_prefix: "One recipe book"
+    title_highlight: "for the whole household"
+    body: "With Family up to six people share one recipe book, each with their own sign-in. What one of you scans, the others see. Collections, the shopping list and the recipes are yours together, and everyone can keep a recipe book of their own beside it."
+    bullets:
+      - "Up to six members, invited by e-mail"
+      - "One shopping list, live for everyone"
+      - "300 AI scans a month, for the whole book"
+      - "Member of several recipe books? You switch with one tap"
+    cta: "See Family"
+    image: "/images/fornelo/en-web-accounts.webp"
+    image_alt: "Settings › Recipe books: the Family subscription with 300 AI scans, the three members Sanne, Mark and Fleur, and two accepted invitations"
+
+  pricing:
+    title_prefix: "Fair"
+    title_highlight: "pricing"
+    intro: "Starting is free, forever. A subscription gives you more AI scans a month, and with Family you cook together in one recipe book. All prices include VAT."
+    popular: "Most popular"
+    plans:
+      - name: "Free"
+        description: "For trying it out, or for the occasional scan."
+        price: "€ 0"
+        price_number: "0"
+        period: ""
+        bullets:
+          - "10 AI scans a month"
+          - "As many recipes as you like; typing in does not count"
+          - "Search, cooking mode, timers and scaling servings"
+          - "Shopping list and collections"
+          - "Apps for iPhone and Android, and the browser"
+          - "For one person"
+        cta: "Start for free"
+      - name: "Premium"
+        description: "For scanning the whole cookbook shelf."
+        price: "€ 2.99"
+        price_number: "2.99"
+        period: "/ month"
+        alternatives: "Or € 24.99 a year, or € 59.99 for good."
+        highlighted: true
+        bullets:
+          - "Everything in Free"
+          - "100 AI scans a month"
+          - "14-day free trial, cancel monthly"
+          - "For one person"
+        cta: "Try 14 days for free"
+      - name: "Family"
+        description: "For a household that cooks together."
+        price: "€ 4.99"
+        price_number: "4.99"
+        period: "/ month"
+        alternatives: "Or € 39.99 a year, or € 99.99 for good."
+        bullets:
+          - "Everything in Premium"
+          - "300 AI scans a month"
+          - "Up to 6 members in one recipe book"
+          - "One shopping list, live for everyone"
+          - "14-day free trial, cancel monthly"
+        cta: "Try 14 days for free"
+    notes:
+      - "New to Fornelo? A monthly or yearly subscription starts with 14 days for free; cancel in that time and you pay nothing."
+      - "You pay on the website, or in the app through the App Store or Google Play. You can cancel at any time in your settings."
+      - "For good means you pay once, and never again."
+
+  faq:
+    title_prefix: ""
+    title_highlight: "Frequently asked"
+    title_suffix: "questions"
+    items:
+      - question: "What is Fornelo?"
+        answer: "A recipe book you fill yourself, from what you already have: cookbooks, magazines, websites. You take a photo and Fornelo turns it into a recipe you can search, scale, cook and put on the shopping list. It works on your phone, tablet and computer, with one account."
+        home: true
+      - question: "How well does Fornelo read a photo?"
+        answer: "A printed page it reads well nearly every time, two columns, notes in italics and a second ingredient list included, and Fornelo tells you how sure it was. Handwritten recipes Fornelo cannot read yet; those you type in yourself. You check every recipe before you confirm it, and the text that was read and the photo stay with the recipe, so you can always look back."
+        home: true
+      - question: "What is an AI scan, and what counts?"
+        answer: "Every time Fornelo reads a photo or a link for you is one AI scan. A recipe with three photos is one scan. Typing a recipe in yourself never counts. Free gives you 10 a month, Premium 100 and Family 300, for the whole recipe book together."
+        home: true
+      - question: "Does Fornelo work on my phone?"
+        answer: "Yes. There are apps for iPhone and Android, and Fornelo works in any modern browser. You sign in everywhere with the same account; what you scan on your phone is on your computer right away. The apps also keep your recipe book on the phone, so you can read and cook without signal."
+        home: true
+      - question: "Can my family and I share one recipe book?"
+        answer: "Yes, with Family. Up to six people share one recipe book, each with their own sign-in. Recipes, collections and the shopping list are yours together, and whoever ticks something off, the others see it at once. You can keep a recipe book of your own beside it and switch with one tap."
+        home: true
+      - question: "How does the shopping list work?"
+        answer: "Put a recipe on the list from the recipe itself, for more or fewer people if you like. Fornelo adds up the ingredients of different recipes and leaves out what is in your pantry staples, such as salt, pepper and oil. You can add loose items too. In the app you tick off without signal; as soon as you are back online, it catches up."
+      - question: "Can I add recipes from websites?"
+        answer: "Yes. Paste the link and Fornelo fetches the recipe, just like with a photo. It counts as one AI scan. A screenshot of a recipe works too: you scan it as a photo."
+      - question: "Does it work offline?"
+        answer: "In the apps for iPhone and Android: yes, reading and cooking. Your whole recipe book is on your phone, photos included, and the shopping list can be ticked off without signal. Scanning, editing and managing need a connection. In the browser a connection is always needed."
+      - question: "What happens to my photos and data?"
+        answer: "Your recipes and photos are yours. They live in your own recipe book and Fornelo uses them for nothing else. If you want to help improve the reading, you can switch that on; we then use the text that was read and your corrections, without photos and without data about you, and never from recipes you mark as your own or a family recipe. You can download your whole recipe book as a zip and delete your account yourself."
+        home: true
+      - question: "How do I pay, and can I cancel?"
+        answer: "On the website, or in the app through the App Store or Google Play. A monthly or yearly subscription starts with 14 days for free; cancel in that time and you pay nothing. After that you can cancel at any time in your settings; you keep it until the end of the paid period. For good you pay once. All prices include VAT."
+        home: true
+      - question: "Can I share a recipe with someone without Fornelo?"
+        answer: "Yes. Make a share link at the recipe and send it on. Whoever opens it sees the recipe, neatly laid out, without an account. You can withdraw the link at any time."
+      - question: "How do I sign in?"
+        answer: "With your e-mail address and a password, or with Google, Microsoft or Apple. You can link several ways to one account. In the app you can also lock Fornelo with Face ID, Touch ID or your fingerprint."
+      - question: "Which languages is Fornelo in?"
+        answer: "Dutch and English, in the apps, the browser and the e-mails. You read recipes in the language they were written in; Fornelo does not translate them."
+    all_link: "More questions and answers"
+    page_title: "Frequently asked questions"
+    page_intro: "What people ask us before they start. Is your question not here? E-mail us."
+
+  footer_cta:
+    title_prefix: "Your recipes,"
+    title_highlight: "all in one place."
+    intro: "Start with a photo of that one recipe you keep losing. In a few minutes it is in your recipe book, on all your devices."
+    pricing_cta: "See pricing"
+    questions: "Questions? Send an e-mail to"
+
+  share:
+    label: "Share"
+    native: "Share…"
+    via: "Share via"
+    email: "e-mail"
+    copy: "Copy link"
+    copied: "Copied"
+    band_title: "Know someone who would like this?"
+    band_prefix: "Know someone who"
+    band_phrases:
+      - "cooks from cookbooks?"
+      - "keeps grandma's recipes? ❤️"
+      - "always forgets the milk? 😉"
+    band_text: "A friend, your sister, the neighbour with that shelf full of cookbooks: pass Fornelo on. Then their recipes will be in one place too."
+    band_share_text: "Fornelo: take a photo of a recipe and it is in your recipe book, searchable and on the shopping list."
+
+  footer:
+    copy: "The recipe book that reads your cookbooks. Take a photo, and the recipe is on all your devices."
+    made_by: "Fornelo is a product of"
+    legal:
+      - label: "Terms of use"
+        href: "/voorwaarden"
+      - label: "Privacy policy"
+        href: "/privacy"
+    ideas:
+      link: "Ideas & suggestions"
+      title: "Ideas and suggestions"
+      text: "Missing something in Fornelo, or could something be better? E-mail us, we read everything."
+      subject: "Idea for Fornelo"
+      copy: "Copy"
+      copied: "Copied"
+      mail_app: "Open your mail app"
+      gmail: "Open in Gmail"
+      no_mail_app: "Nothing opens? Then no mail app is set up on this device. Copy the address or open Gmail."
+      close: "Close"
+    quick_links_title: "Quick links"
+    quick_links:
+      - label: "What you do with it"
+        href: "#feature-section"
+      - label: "For the whole household"
+        href: "#family-section"
+      - label: "Pricing"
+        href: "#pricing-section"
+      - label: "FAQ"
+        href: "/en/faq/"
+    app_title: "The app"
+    app_links:
+      - label: "Sign in"
+        href: "/login"
+      - label: "Create an account"
+        href: "/register"
+      - label: "Subscriptions"
+        href: "/pricing"
+      - label: "Withdrawal form"
+        href: "/herroepingsformulier"
+    company_title: "About us"
+    company_text: "Fornelo is made by Flink Software B.V. in the Netherlands. Small team, large cookbook shelf."
+    language_title: "Language"
+    languages:
+      - label: "Nederlands"
+        flag: "🇳🇱"
+        href: "/"
+      - label: "English"
+        flag: "🇬🇧"
+        href: "/en/"
